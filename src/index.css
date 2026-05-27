@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Smooth scrolling for the whole website */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
