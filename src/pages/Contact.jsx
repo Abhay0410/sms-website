@@ -68,7 +68,7 @@ const Contact = () => {
                 <FaPhoneAlt className="text-indigo-400 text-xl mt-1 shrink-0" />
                 <div>
                   <p className="font-semibold text-white mb-1">Call Us</p>
-                  <p>+1 (555) 123-4567</p>
+                  <p>+91 555-123-4567</p>
                   <p className="text-sm mt-1">Mon-Fri from 8am to 6pm EST</p>
                 </div>
               </div>
@@ -76,7 +76,7 @@ const Contact = () => {
                 <FaMapMarkerAlt className="text-indigo-400 text-xl mt-1 shrink-0" />
                 <div>
                   <p className="font-semibold text-white mb-1">Headquarters</p>
-                  <p>123 Innovation Drive<br/>Tech Hub, Suite 400<br/>San Francisco, CA 94105</p>
+                  <p>123 Innovation Drive<br/>Tech Hub, Suite 400<br/>Durg, CA 94105</p>
                 </div>
               </div>
             </div>
