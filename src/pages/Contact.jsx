@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -21,7 +23,7 @@ const Contact = () => {
     
     try {
       // Hit your newly created public backend route
-      await axios.post('http://localhost:5000/api/public/contact', formData);
+      await axios.post(`${API_BASE_URL}/api/public/contact`, formData);
       
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
