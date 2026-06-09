@@ -398,7 +398,9 @@ const AllModules = () => {
             const slug = module.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
             
             const linkTo = module.title === "Academic Management" 
-              ? "/academic-structure" 
+              ? "/academic-structure"
+              : module.title === "Student Management"
+              ? "/student-management"
               : `/modules/${slug}`;
 
             return (

@@ -1,433 +1,348 @@
+import StudentOverviewImg from "../../assets/eduzagerstudentmagement.png";
+import { useState, useEffect } from "react";
+import {
+  UserPlus,
+  ArrowUpRight,
+  UserCheck,
+  Users,
+  Search,
+  Database
+  Database,
+  ArrowRight
+} from "lucide-react";
 
-import { useEffect } from "react";
-import StudentOverviewImg from "../../assets/StudentManagement.png";
-function StudentManagement() {
+const features = [
+  {
+    id: "registration",
+    icon: <UserPlus size={22} strokeWidth={1.5} />,
+    title: "Student Registration",
+    description:
+      "Add and manage student admission records with complete details. Supports single entry and bulk imports to save time across entire batches.",
+    tags: ["Quick Add", "Bulk Import", "Document Upload"],
+  },
+  {
+    id: "promotion",
+    icon: <ArrowUpRight size={22} strokeWidth={1.5} />,
+    title: "Student Promotion",
+    description:
+      "Promote students individually or in bulk to the next class based on their academic performance at the end of the year smoothly.",
+    tags: ["Bulk Promote", "Session Map", "History Log"],
+  },
+  {
+    id: "status",
+    icon: <UserCheck size={22} strokeWidth={1.5} />,
+    title: "Status Management",
+    description:
+      "Track the lifecycle of every student from active enrollment to alumni status, dropouts, or transfers effortlessly in one place.",
+    tags: ["Active", "Alumni", "Transfer"],
+  },
+  {
+    id: "allocation",
+    icon: <Users size={22} strokeWidth={1.5} />,
+    title: "Class Allocation",
+    description:
+      "Allocate students to classes and sections seamlessly. Automatically assign roll numbers based on customizable sorting rules.",
+    tags: ["Section Assign", "Auto Roll No", "Capacity Check"],
+  },
+  {
+    id: "search",
+    icon: <Search size={22} strokeWidth={1.5} />,
+    title: "Search & Filters",
+    description:
+      "Instantly locate student records by filtering through Academic Year, Status, Class, Section, or custom keywords like IDs.",
+    tags: ["Advanced Search", "Multi-Filter", "Quick View"],
+  },
+  {
+    id: "bulk",
+    icon: <Database size={22} strokeWidth={1.5} />,
+    title: "Bulk Operations",
+    description:
+      "Perform bulk administrative actions like status updates, section transfers, and data exports to CSV/PDF with minimal effort.",
+    tags: ["Export Data", "Mass Update", "CSV/PDF"],
+  },
+];
+
+const stats = [
+  { value: "1,250+", label: "Active Students" },
+  { value: "210", label: "New Admissions" },
+  { value: "95%", label: "Promotion Rate" },
+  { value: "320+", label: "Alumni Records" },
+];
+
+const workflow = [
+  { step: "01", title: "Register", desc: "Enroll students manually or via bulk upload." },
+  { step: "02", title: "Assign", desc: "Allocate classes, sections, and roll numbers." },
+  { step: "03", title: "Update", desc: "Maintain records, documents, and contacts." },
+  { step: "04", title: "Track", desc: "Monitor academic and behavioral progress." },
+  { step: "05", title: "Promote", desc: "Upgrade to the next academic session." },
+  { step: "06", title: "Archive", desc: "Transfer to alumni or update leave status." },
+];
+
+const benefits = [
+  {
+    title: "Centralized Student Records",
+    desc: "Access complete student information, academic history, and documents from one secure platform.",
+  },
+  {
+    title: "Faster Administration",
+    desc: "Reduce manual paperwork and administrative workload by automating data entry and promotions.",
+  },
+  {
+    title: "Better Data Accuracy",
+    desc: "Ensure accurate and updated student records across all departments with a single source of truth.",
+  },
+  {
+    title: "Seamless Alumni Tracking",
+    desc: "Maintain lasting relationships by easily tracking and engaging with graduated students.",
+  },
+];
+
+export default function StudentManagement() {
+  const [activeFeature, setActiveFeature] = useState(null);
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
-    <>
-      {/* HERO SECTION */}
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-20">
+    <div className="font-sans text-black bg-white">
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-            <div>
-              <span className="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm">
-                Student Management Module
-              </span>
-
-              <h1 className="text-5xl font-bold mt-6 leading-tight">
-                Manage Students &
-                <span className="block text-indigo-300">
-                  Academic Progress
-                </span>
-              </h1>
-
-              <p className="mt-6 text-lg text-slate-300 leading-8">
-                Manage student admissions, registrations, promotions,
-                class allocation, alumni records and dropout tracking
-                from a centralized dashboard.
-              </p>
-
-              <div className="flex gap-4 mt-8">
-                <button className="bg-white text-slate-900 px-6 py-3 rounded-xl font-semibold">
-                  Request Demo
-                </button>
-
-                <button className="border border-white/20 px-6 py-3 rounded-xl">
-                  Explore Features
-                </button>
-              </div>
-
-              <div className="grid grid-cols-4 gap-6 mt-10">
-                <div>
-                  <h3 className="text-3xl font-bold">1250+</h3>
-                  <p className="text-slate-400">Students</p>
-                </div>
-
-                <div>
-                  <h3 className="text-3xl font-bold">17</h3>
-                  <p className="text-slate-400">Classes</p>
-                </div>
-
-                <div>
-                  <h3 className="text-3xl font-bold">52</h3>
-                  <p className="text-slate-400">Alumni</p>
-                </div>
-
-                <div>
-                  <h3 className="text-3xl font-bold">98%</h3>
-                  <p className="text-slate-400">Retention</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-center">
-              <img
-                src={StudentOverviewImg}
-                alt="Student Management"
-                className="rounded-3xl shadow-2xl"
-              />
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* FEATURES */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold text-slate-900">
-              Student Management Features
-            </h2>
-
-            <p className="text-slate-500 mt-4 max-w-3xl mx-auto">
-              Maintain complete student records, manage promotions,
-              alumni tracking and perform bulk student operations
-              efficiently.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <div className="bg-slate-50 p-8 rounded-3xl border">
-              <h3 className="font-bold text-xl mb-3">
-                Student Registration
-              </h3>
-              <p className="text-slate-600">
-                Add and manage student admission records with complete details.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-8 rounded-3xl border">
-              <h3 className="font-bold text-xl mb-3">
-                Student Promotion
-              </h3>
-              <p className="text-slate-600">
-                Promote students individually or in bulk to the next class.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-8 rounded-3xl border">
-              <h3 className="font-bold text-xl mb-3">
-                Status Management
-              </h3>
-              <p className="text-slate-600">
-                Track Active, Alumni, Dropout and Transfer students.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-8 rounded-3xl border">
-              <h3 className="font-bold text-xl mb-3">
-                Class Allocation
-              </h3>
-              <p className="text-slate-600">
-                Allocate students to classes and sections seamlessly.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-8 rounded-3xl border">
-              <h3 className="font-bold text-xl mb-3">
-                Search & Filters
-              </h3>
-              <p className="text-slate-600">
-                Filter students by Academic Year, Status and Class.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-8 rounded-3xl border">
-              <h3 className="font-bold text-xl mb-3">
-                Bulk Operations
-              </h3>
-              <p className="text-slate-600">
-                Bulk Promote, Delete, Export and Update student records.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* OVERVIEW */}
-      {/* OVERVIEW */}
-<section className="py-20 bg-slate-50">
-  <div className="max-w-7xl mx-auto px-6">
-
-    <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-      <div>
-        <h2 className="text-4xl font-bold mb-6">
-          Complete Student Management System
-        </h2>
-
-        <p className="text-slate-600 leading-8">
-          Student Management enables educational institutions to
-          maintain comprehensive student records from admission to
-          graduation. Administrators can manage personal details,
-          academic history, attendance records, documents and class
-          allocations through a centralized platform.
-        </p>
-
-        <p className="text-slate-600 leading-8 mt-4">
-          The module provides powerful filtering capabilities based
-          on academic year, student status and class. Schools can
-          quickly locate student information and perform bulk
-          administrative actions with minimal effort.
-        </p>
-
-        <p className="text-slate-600 leading-8 mt-4">
-          With student promotion, alumni tracking, dropout
-          management and bulk operations, institutions can improve
-          administrative efficiency while ensuring data accuracy
-          and transparency.
-        </p>
-      </div>
-
-      <div>
+      {/* ── HERO ── */}
+      <section className="w-full bg-white border-b border-slate-100">
         <img
           src={StudentOverviewImg}
-          alt="Student Management"
-          className="rounded-3xl shadow-xl"
+          alt="Student Management Dashboard"
+          className="w-full h-auto block"
         />
+      </section>
 
-        <div className="grid grid-cols-2 gap-4 mt-6">
-
-          <div className="bg-white p-6 rounded-2xl shadow">
-            <h3 className="text-3xl font-bold text-indigo-600">
-              1250+
-            </h3>
-            <p className="text-slate-500 mt-2">
-              Active Students
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl shadow">
-            <h3 className="text-3xl font-bold text-green-600">
-              98%
-            </h3>
-            <p className="text-slate-500 mt-2">
-              Promotion Rate
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl shadow">
-            <h3 className="text-3xl font-bold text-purple-600">
-              17
-            </h3>
-            <p className="text-slate-500 mt-2">
-              Classes Managed
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl shadow">
-            <h3 className="text-3xl font-bold text-orange-600">
-              42
-            </h3>
-            <p className="text-slate-500 mt-2">
-              Sections
-            </p>
-          </div>
-
+      {/* ── STATS STRIP ── */}
+      <section className="bg-[#C62828]">
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <div
+              key={s.label}
+              className={`px-10 py-8 text-white ${
+                i !== stats.length - 1 ? "border-r border-white/20" : ""
+              }`}
+            >
+              <div className="text-3xl md:text-4xl font-bold">{s.value}</div>
+              <div className="text-xs text-white/70 mt-1 tracking-wide uppercase">
+                {s.label}
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
+      </section>
 
-    </div>
-
-  </div>
-</section>
-
-{/* BENEFITS */}
-<section className="py-20 bg-white">
-
-  <div className="max-w-7xl mx-auto px-6">
-
-    <div className="text-center mb-12">
-      <h2 className="text-4xl font-bold">
-        Benefits
-      </h2>
-    </div>
-
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Centralized Student Records
-        </h3>
-        <p>
-          Access complete student information from one platform.
-        </p>
-      </div>
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Bulk Promotion
-        </h3>
-        <p>
-          Promote multiple students to the next class instantly.
-        </p>
-      </div>
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Easy Filtering
-        </h3>
-        <p>
-          Search students by year, class and status.
-        </p>
-      </div>
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Alumni Tracking
-        </h3>
-        <p>
-          Maintain records of graduated students.
-        </p>
-      </div>
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Faster Administration
-        </h3>
-        <p>
-          Reduce manual paperwork and administrative workload.
-        </p>
-      </div>
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Better Data Accuracy
-        </h3>
-        <p>
-          Ensure accurate and updated student records.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-{/* WORKFLOW */}
-<section className="py-20 bg-slate-50">
-
-  <div className="max-w-7xl mx-auto px-6">
-
-    <h2 className="text-center text-4xl font-bold mb-16">
-      Student Management Workflow
-    </h2>
-
-    <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-
-      {[
-        "Register Student",
-        "Assign Class",
-        "Update Profile",
-        "Track Progress",
-        "Promote Student",
-        "Archive Alumni",
-      ].map((item) => (
-        <div
-          key={item}
-          className="bg-white border rounded-3xl p-6 text-center shadow-sm"
-        >
-          <h3 className="font-semibold">
-            {item}
-          </h3>
+      {/* ── INTRO ── */}
+      <section className="px-6 md:px-24 py-16 border-b border-gray-100">
+        <div className="max-w-3xl">
+          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+            What Is This Module
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
+            The Complete Student Record Hub
+          </h2>
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            Student Management enables educational institutions to maintain comprehensive 
+            student records from admission to graduation. Administrators can manage personal details, 
+            academic history, attendance records, documents, and class allocations through a 
+            centralized platform. Filtering and bulk actions make student administration effortless.
+          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+          <div>
+            <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+              What Is This Module
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight">
+              The Complete Student Record Hub
+            </h2>
+          </div>
+          <div className="bg-gray-50 p-6 md:p-8 rounded-2xl border-l-4 border-[#C62828]">
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+              Student Management enables educational institutions to maintain comprehensive 
+              student records from admission to graduation. Administrators can manage personal details, 
+              academic history, attendance records, documents, and class allocations through a 
+              centralized platform. Filtering and bulk actions make student administration effortless.
+            </p>
+          </div>
         </div>
-      ))}
+      </section>
+
+      {/* ── FEATURES GRID ── */}
+      <section className="px-6 md:px-24 py-16 border-b border-gray-100">
+        <div className="mb-10">
+          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
+            Six Core Features
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-black">
+            Simplify the Student Journey.
+          </h2>
+        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
+              Six Core Features
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-black">
+              Simplify the Student Journey.
+            </h2>
+          </div>
+          <div className="md:text-right flex-shrink-0">
+            <button className="text-sm font-semibold text-[#C62828] hover:text-black transition-colors flex items-center gap-2 md:justify-end">
+              Explore full documentation <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((f) => (
+            <div
+              key={f.id}
+              className={`group border rounded-2xl p-7 transition-all cursor-pointer ${
+                activeFeature === f.id
+                  ? "border-[#C62828] bg-red-50"
+                  : "border-gray-200 hover:border-gray-300 hover:shadow-sm bg-white"
+              }`}
+              onClick={() =>
+                setActiveFeature(activeFeature === f.id ? null : f.id)
+              }
+            >
+              <div
+                className={`w-10 h-10 rounded-xl flex items-center justify-center mb-5 transition-all ${
+                  activeFeature === f.id
+                    ? "bg-[#C62828] text-white"
+                    : "bg-gray-100 text-gray-500 group-hover:bg-gray-200"
+                }`}
+              >
+                {f.icon}
+              </div>
+
+              <h3 className="text-base font-bold text-black mb-2">{f.title}</h3>
+
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-5">
+                {f.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-5">
+                {f.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-2.5 py-1 rounded-full border border-gray-200 text-gray-500 bg-gray-50"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <button
+                className={`border px-3 py-1 rounded-full text-xs transition-all ${
+                  activeFeature === f.id
+                    ? "border-[#C62828] bg-[#C62828] text-white"
+                    : "border-[#C62828] text-[#C62828] hover:bg-[#C62828] hover:text-white"
+                }`}
+              >
+                {activeFeature === f.id ? "Close" : "Read More"}
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── WORKFLOW ── */}
+      <section className="px-6 md:px-24 py-16 bg-gray-50 border-b border-gray-100">
+        <div className="mb-10">
+          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
+            How It Works
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-black">
+            From Registration to Graduation
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {workflow.map((w, i) => (
+            <div key={w.step} className="relative">
+              {i < workflow.length - 1 && (
+                <div className="hidden lg:block absolute top-5 left-full w-full h-px bg-gray-200 z-0" />
+              )}
+              <div className="relative z-10 bg-white border border-gray-200 rounded-2xl p-5 h-full">
+                <div className="text-xs font-bold text-[#C62828] mb-3 tracking-widest">
+                  {w.step}
+                </div>
+                <div className="text-sm font-bold text-black mb-1.5">{w.title}</div>
+                <div className="text-xs text-gray-500 leading-relaxed">{w.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── OVERVIEW / BENEFITS ── */}
+      <section className="px-6 md:px-24 py-16 border-b border-gray-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+              Why It Matters
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-5 leading-tight">
+              Keep student data secure, accurate, and easily accessible.
+            </h2>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+              Tracking students throughout their academic lifecycle can be a logistical nightmare. 
+              Without a unified system, information gets lost in physical files and disconnected tools.
+            </p>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
+              The Student Management module solves this by connecting admissions, attendance, and academics 
+              into a single source of truth. Moving students to the next grade is a matter of clicks rather 
+              than days of manual entry.
+            </p>
+            <button className="border border-[#C62828] text-[#C62828] px-3 py-1 rounded-full text-xs hover:bg-[#C62828] hover:text-white transition-all">
+              Read Documentation
+            </button>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            {benefits.map((b) => (
+              <div
+                key={b.title}
+                className="flex gap-4 items-start border border-gray-200 rounded-2xl p-5 bg-white hover:border-[#C62828] transition-all group"
+              >
+                <div className="w-2 h-2 rounded-full bg-[#C62828] mt-1.5 flex-shrink-0" />
+                <div>
+                  <div className="text-sm font-bold text-black mb-1">{b.title}</div>
+                  <div className="text-gray-600 text-sm leading-relaxed">{b.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="px-6 md:px-24 py-20 bg-black">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+            Get Started
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
+            Ready to simplify student management?
+          </h2>
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8">
+            See the full Student Management module live — with your own data —
+            in a 30-minute walkthrough with our team.
+          </p>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <button className="bg-[#C62828] text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-[#a81f1f] transition-all">
+              Book a Demo
+            </button>
+            <button className="border border-white/30 text-white px-7 py-3 rounded-full text-sm hover:border-white transition-all">
+              Explore All Modules
+            </button>
+          </div>
+        </div>
+      </section>
 
     </div>
-
-  </div>
-
-</section>
-
-{/* STATS */}
-<section className="py-20 bg-white">
-
-  <div className="max-w-7xl mx-auto px-6">
-
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-      <div className="bg-blue-50 p-8 rounded-3xl text-center">
-        <h3 className="text-5xl font-bold text-blue-600">
-          1250
-        </h3>
-        <p className="mt-2">
-          Active Students
-        </p>
-      </div>
-
-      <div className="bg-green-50 p-8 rounded-3xl text-center">
-        <h3 className="text-5xl font-bold text-green-600">
-          210
-        </h3>
-        <p className="mt-2">
-          New Admissions
-        </p>
-      </div>
-
-      <div className="bg-purple-50 p-8 rounded-3xl text-center">
-        <h3 className="text-5xl font-bold text-purple-600">
-          95%
-        </h3>
-        <p className="mt-2">
-          Promotion Rate
-        </p>
-      </div>
-
-      <div className="bg-orange-50 p-8 rounded-3xl text-center">
-        <h3 className="text-5xl font-bold text-orange-600">
-          320
-        </h3>
-        <p className="mt-2">
-          Alumni Records
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-{/* CTA */}
-<section className="py-20 bg-slate-900 text-white">
-
-  <div className="max-w-4xl mx-auto text-center px-6">
-
-    <h2 className="text-5xl font-bold">
-      Ready To Simplify Student Management?
-    </h2>
-
-    <p className="mt-6 text-slate-300 text-lg">
-      Manage admissions, promotions, alumni records and
-      student information through a single centralized
-      dashboard.
-    </p>
-
-    <button className="mt-8 bg-indigo-600 hover:bg-indigo-700 px-8 py-4 rounded-xl font-semibold">
-      Request Demo
-    </button>
-
-  </div>
-
-</section>
-    </>
   );
 }
-
-export default StudentManagement;

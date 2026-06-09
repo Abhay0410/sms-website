@@ -1,388 +1,323 @@
-import AcedemicImg from "../../assets/academic-structure.png";
-import { useEffect } from "react";
-import SectionImg from "../../assets/CreateSection.png";
+import AcademicImg from "../../assets/edzageracdemicmangment.png";
+import { useState } from "react";
+import {
+  Users,
+  LayoutGrid,
+  UserCircle,
+  GraduationCap,
+  BookOpen,
+  BadgeCheck,
+  CalendarClock,
+} from "lucide-react";
 
+const features = [
+  {
+    id: "bulk",
+    icon: <Users size={22} strokeWidth={1.5} />,
+    title: "Bulk Enrollment",
+    description:
+      "Upload a CSV or pull from your student registry to enroll entire batches at once. Conflict detection prevents duplicates and section overflows before they cause problems.",
+    tags: ["CSV Import", "Batch Processing", "Error Rollback"],
+  },
+  {
+    id: "class",
+    icon: <LayoutGrid size={22} strokeWidth={1.5} />,
+    title: "Class Management",
+    description:
+      "Create and organise classes for every session with capacity limits. Clone last year's entire structure in one action — no rebuilding from scratch.",
+    tags: ["Session Linked", "One-click Clone", "Archive Support"],
+  },
+  {
+    id: "profile",
+    icon: <UserCircle size={22} strokeWidth={1.5} />,
+    title: "Student Profile",
+    description:
+      "Edit personal, academic, and contact details from one unified view. Role-based permissions ensure only authorised staff can modify sensitive records.",
+    tags: ["Audit Log", "Role Access", "Document Upload"],
+  },
+  {
+    id: "student",
+    icon: <GraduationCap size={22} strokeWidth={1.5} />,
+    title: "Student Management",
+    description:
+      "Search, filter, and group across all enrolled students. Track section assignment, attendance status, and export data to PDF or Excel instantly.",
+    tags: ["Advanced Filters", "Status Tracking", "PDF / Excel Export"],
+  },
+  {
+    id: "subject",
+    icon: <BookOpen size={22} strokeWidth={1.5} />,
+    title: "Subject Management",
+    description:
+      "Map subjects to classes with credit hours and core/elective designation. Teachers see only what's assigned to them — no clutter, no confusion.",
+    tags: ["Credit Hours", "Elective Tagging", "Syllabus Attach"],
+  },
+  {
+    id: "teacher",
+    icon: <BadgeCheck size={22} strokeWidth={1.5} />,
+    title: "Teacher Management",
+    description:
+      "Assign class teachers and section in-charges. Enforce workload limits and view each teacher's full class schedule from their profile page.",
+    tags: ["Workload Limit", "Clash Detection", "Staff Directory"],
+  },
+  {
+    id: "timetable",
+    icon: <CalendarClock size={22} strokeWidth={1.5} />,
+    title: "Timetable Management",
+    description:
+      "Schedule periods across classes and sections with automatic conflict detection for teachers and rooms. Publish to all students and staff in one click.",
+    tags: ["Auto Clash Detect", "Room Allocation", "Instant Publish"],
+  },
+];
 
-function AcademicStructure() {
+const stats = [
+  { value: "17", label: "Classes" },
+  { value: "42", label: "Sections" },
+  { value: "38", label: "Teachers Assigned" },
+  { value: "1,250", label: "Students Enrolled" },
+];
 
-   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, []);
+const workflow = [
+  { step: "01", title: "Create Session", desc: "Set academic year and term dates." },
+  { step: "02", title: "Add Classes", desc: "Define grades with sections and capacity." },
+  { step: "03", title: "Map Subjects", desc: "Attach subjects, credits, and type." },
+  { step: "04", title: "Assign Teachers", desc: "Link staff to classes and subjects." },
+  { step: "05", title: "Enroll Students", desc: "Bulk import or add individually." },
+  { step: "06", title: "Publish Timetable", desc: "Schedule periods and notify all." },
+];
 
-  return (        
-  <>
+const benefits = [
+  {
+    title: "No duplicate data entry",
+    desc: "Create a class once — it reflects across enrollment, timetable, and reports automatically.",
+  },
+  {
+    title: "Clash-free scheduling",
+    desc: "Teacher and room conflicts are flagged before they make it into the published timetable.",
+  },
+  {
+    title: "Session continuity",
+    desc: "Clone last year's full structure in a single action and start the new year in minutes.",
+  },
+  {
+    title: "Role-based control",
+    desc: "Admins, teachers, and staff each see exactly what they need — no more, no less.",
+  },
+];
 
-{/* HERO SECTION */}
-<section className="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white">
-  <div className="max-w-7xl mx-auto px-6 py-20">
+export default function AcademicStructure() {
+  const [activeFeature, setActiveFeature] = useState(null);
 
-    <div className="grid lg:grid-cols-2 gap-12 items-center">
+  return (
+    <div className="font-sans text-black bg-white">
 
-      <div>
-        <span className="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm">
-          Academic Structure Module
-        </span>
-
-        <h1 className="text-5xl font-bold mt-6 leading-tight">
-          Manage Classes & Sections
-          <span className="block text-indigo-300">
-            From One Dashboard
-          </span>
-        </h1>
-
-        <p className="mt-6 text-lg text-slate-300 leading-8">
-          Create and manage classes, sections, student allocation,
-          teacher assignments and academic sessions from a centralized
-          platform.
-        </p>
-
-        <div className="flex gap-4 mt-8">
-          <button className="bg-white text-slate-900 px-6 py-3 rounded-xl font-semibold">
-            Request Demo
-          </button>
-
-          <button className="border border-white/20 px-6 py-3 rounded-xl">
-            Explore Features
-          </button>
-        </div>
-
-        <div className="grid grid-cols-3 gap-6 mt-10">
-          <div>
-            <h3 className="text-3xl font-bold">50+</h3>
-            <p className="text-slate-400">Classes</p>
-          </div>
-
-          <div>
-            <h3 className="text-3xl font-bold">100+</h3>
-            <p className="text-slate-400">Sections</p>
-          </div>
-
-          <div>
-            <h3 className="text-3xl font-bold">1000+</h3>
-            <p className="text-slate-400">Students</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-10   w-full flex justify-center">
+      {/* ── HERO ── */}
+      <section className="w-full bg-white border-b border-slate-100">
         <img
-          src={AcedemicImg}
-          alt="Academic Dashboard"
-          className="rounded-3xl shadow-2xl"
+          src={AcademicImg}
+          alt="Academic Management Dashboard"
+          className="w-full h-auto block"
         />
-      </div>
+      </section>
 
-    </div>
-  </div>
-</section>
-
-{/* FEATURES */}
-<section className="py-20 bg-white">
-  <div className="max-w-7xl mx-auto px-6">
-
-    <div className="text-center mb-14">
-      <h2 className="text-4xl font-bold text-slate-900">
-        Academic Structure Features
-      </h2>
-
-      <p className="text-slate-500 mt-4 max-w-3xl mx-auto">
-      Create, update and organize academic classes for different
-    grades and sessions. Maintain a structured hierarchy for
-    efficient academic administration.
-      </p>
-    </div>
-
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <div className="bg-slate-50 p-8 rounded-3xl border">
-        <h3 className="font-bold text-xl mb-3">
-          Class Management
-        </h3>
-        <p className="text-slate-600">
-          Create and organize classes for every academic session.
-        </p>
-      </div>
-
-      <div className="bg-slate-50 p-8 rounded-3xl border">
-        <h3 className="font-bold text-xl mb-3">
-          Section Management
-        </h3>
-        <p className="text-slate-600">
-          Add, update and remove sections anytime.
-        </p>
-      </div>
-
-      <div className="bg-slate-50 p-8 rounded-3xl border">
-        <h3 className="font-bold text-xl mb-3">
-          Teacher Assignment
-        </h3>
-        <p className="text-slate-600">
-          Assign class teachers and section in-charges.
-        </p>
-      </div>
-
-      <div className="bg-slate-50 p-8 rounded-3xl border">
-        <h3 className="font-bold text-xl mb-3">
-          Student Allocation
-        </h3>
-        <p className="text-slate-600">
-          Manage section-wise student distribution.
-        </p>
-      </div>
-
-      <div className="bg-slate-50 p-8 rounded-3xl border">
-        <h3 className="font-bold text-xl mb-3">
-          Session Sync
-        </h3>
-        <p className="text-slate-600">
-          Copy previous session structure instantly.
-        </p>
-      </div>
-
-      <div className="bg-slate-50 p-8 rounded-3xl border">
-        <h3 className="font-bold text-xl mb-3">
-          Search & Filter
-        </h3>
-        <p className="text-slate-600">
-          Find classes and sections quickly.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-{/* OVERVIEW */}
-<section className="py-20 bg-slate-50">
-  <div className="max-w-7xl mx-auto px-6">
-
-    <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-      <div>
-        <h2 className="text-4xl font-bold mb-6">
-          Complete Academic Structure Management
-        </h2>
-
-       <p className="text-slate-600 leading-8">
-  Academic Structure Management enables schools, colleges and
-  educational institutions to define and maintain their academic
-  hierarchy in a structured manner. Administrators can create
-  multiple classes, organize sections and configure academic
-  sessions according to institutional requirements.
-</p>
-
-<p className="text-slate-600 leading-8 mt-4">
-  The system simplifies teacher allocation, student enrollment
-  and section management while providing a centralized view of
-  academic data. Institutions can efficiently track section
-  capacity, student distribution and academic structure without
-  manual record keeping.
-</p>
-
-<p className="text-slate-600 leading-8 mt-4">
-  With session synchronization and quick search capabilities,
-  academic administrators can manage large volumes of academic
-  information while ensuring consistency, accuracy and improved
-  operational control.
-</p>
-      </div>
-
-      <div>
-        <img
-          src={SectionImg}
-          alt=""
-          className="rounded-3xl shadow-xl"
-        />
-      </div>
-
-      
-
-    </div>
-
-  </div>
-</section>
-{/* BENEFITS */}
-<section className="py-20 bg-white">
-
-  <div className="max-w-7xl mx-auto px-6">
-
-    <div className="text-center mb-12">
-      <h2 className="text-4xl font-bold">
-        Benefits
-      </h2>
-    </div>
-
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Better Organization
-        </h3>
-        <p>
-          Maintain a clear academic hierarchy.
-        </p>
-      </div>
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Centralized Control
-        </h3>
-        <p>
-          Manage everything from one dashboard.
-        </p>
-      </div>
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Faster Administration
-        </h3>
-        <p>
-          Reduce manual management efforts.
-        </p>
-      </div>
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Accurate Allocation
-        </h3>
-        <p>
-          Assign teachers and students effectively.
-        </p>
-      </div>
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Session Continuity
-        </h3>
-        <p>
-          Sync academic structure across sessions.
-        </p>
-      </div>
-
-      <div className="border rounded-3xl p-8">
-        <h3 className="font-bold text-xl mb-3">
-          Capacity Tracking
-        </h3>
-        <p>
-          Monitor section occupancy in real time.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-{/* WORKFLOW */}
-<section className="py-20 bg-slate-50">
-
-  <div className="max-w-7xl mx-auto px-6">
-
-    <h2 className="text-center text-4xl font-bold mb-16">
-      Academic Workflow
-    </h2>
-
-    <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-
-      {[
-        "Create Session",
-        "Create Classes",
-        "Create Sections",
-        "Assign Teachers",
-        "Allocate Students",
-        "Monitor Capacity",
-      ].map((item) => (
-        <div
-          key={item}
-          className="bg-white border rounded-3xl p-6 text-center shadow-sm"
-        >
-          <h3 className="font-semibold">
-            {item}
-          </h3>
+      {/* ── STATS STRIP ── */}
+      <section className="bg-[#C62828]">
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <div
+              key={s.label}
+              className={`px-10 py-8 text-white ${
+                i !== stats.length - 1 ? "border-r border-white/20" : ""
+              }`}
+            >
+              <div className="text-3xl md:text-4xl font-bold">{s.value}</div>
+              <div className="text-xs text-white/70 mt-1 tracking-wide uppercase">
+                {s.label}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+      </section>
+
+      {/* ── INTRO ── */}
+      <section className="px-6 md:px-24 py-16 border-b border-gray-100">
+        <div className="max-w-3xl">
+          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+            What Is This Module
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
+            Academic Management is the operational core of your ERP
+          </h2>
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            Inside your ERP, the Academic Management module brings together every
+            function your institution needs to run an academic year — class
+            creation, student enrollment, teacher assignment, subject mapping, and
+            timetable scheduling. All seven features work together so data flows
+            between them without manual re-entry.
+          </p>
+        </div>
+      </section>
+
+      {/* ── FEATURES GRID ── */}
+      <section className="px-6 md:px-24 py-16 border-b border-gray-100">
+        <div className="mb-10">
+          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
+            Seven Features
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-black">
+            Everything Academic. Nothing Missing.
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((f) => (
+            <div
+              key={f.id}
+              className={`group border rounded-2xl p-7 transition-all cursor-pointer ${
+                activeFeature === f.id
+                  ? "border-[#C62828] bg-red-50"
+                  : "border-gray-200 hover:border-gray-300 hover:shadow-sm bg-white"
+              }`}
+              onClick={() =>
+                setActiveFeature(activeFeature === f.id ? null : f.id)
+              }
+            >
+              <div
+                className={`w-10 h-10 rounded-xl flex items-center justify-center mb-5 transition-all ${
+                  activeFeature === f.id
+                    ? "bg-[#C62828] text-white"
+                    : "bg-gray-100 text-gray-500 group-hover:bg-gray-200"
+                }`}
+              >
+                {f.icon}
+              </div>
+
+              <h3 className="text-base font-bold text-black mb-2">{f.title}</h3>
+
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-5">
+                {f.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-5">
+                {f.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-2.5 py-1 rounded-full border border-gray-200 text-gray-500 bg-gray-50"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <button
+                className={`border px-3 py-1 rounded-full text-xs transition-all ${
+                  activeFeature === f.id
+                    ? "border-[#C62828] bg-[#C62828] text-white"
+                    : "border-[#C62828] text-[#C62828] hover:bg-[#C62828] hover:text-white"
+                }`}
+              >
+                {activeFeature === f.id ? "Close" : "Read More"}
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── WORKFLOW ── */}
+      <section className="px-6 md:px-24 py-16 bg-gray-50 border-b border-gray-100">
+        <div className="mb-10">
+          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
+            How It Works
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-black">
+            From Session Setup to Live Timetable
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {workflow.map((w, i) => (
+            <div key={w.step} className="relative">
+              {i < workflow.length - 1 && (
+                <div className="hidden lg:block absolute top-5 left-full w-full h-px bg-gray-200 z-0" />
+              )}
+              <div className="relative z-10 bg-white border border-gray-200 rounded-2xl p-5 h-full">
+                <div className="text-xs font-bold text-[#C62828] mb-3 tracking-widest">
+                  {w.step}
+                </div>
+                <div className="text-sm font-bold text-black mb-1.5">{w.title}</div>
+                <div className="text-xs text-gray-500 leading-relaxed">{w.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── OVERVIEW / BENEFITS ── */}
+      <section className="px-6 md:px-24 py-16 border-b border-gray-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+              Why It Matters
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-5 leading-tight">
+              One module that keeps your entire academic year on track
+            </h2>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+              Without a centralised academic structure, schools end up with
+              mismatched data across departments — attendance that doesn't match
+              enrollment, timetables that clash with teacher assignments, sections
+              that overflow without warning.
+            </p>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
+              The Academic Management module solves this by making all seven
+              operations aware of each other. A change in sections automatically
+              reflects in the timetable, enrollment, and teacher assignment views.
+            </p>
+            <button className="border border-[#C62828] text-[#C62828] px-3 py-1 rounded-full text-xs hover:bg-[#C62828] hover:text-white transition-all">
+              Read Documentation
+            </button>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            {benefits.map((b) => (
+              <div
+                key={b.title}
+                className="flex gap-4 items-start border border-gray-200 rounded-2xl p-5 bg-white hover:border-[#C62828] transition-all group"
+              >
+                <div className="w-2 h-2 rounded-full bg-[#C62828] mt-1.5 flex-shrink-0" />
+                <div>
+                  <div className="text-sm font-bold text-black mb-1">{b.title}</div>
+                  <div className="text-gray-600 text-sm leading-relaxed">{b.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="px-6 md:px-24 py-20 bg-black">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+            Get Started
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
+            Ready to streamline your academic operations?
+          </h2>
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8">
+            See the full Academic Management module live — with your own data —
+            in a 30-minute walkthrough with our team.
+          </p>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <button className="bg-[#C62828] text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-[#a81f1f] transition-all">
+              Book a Demo
+            </button>
+            <button className="border border-white/30 text-white px-7 py-3 rounded-full text-sm hover:border-white transition-all">
+              Explore All Modules
+            </button>
+          </div>
+        </div>
+      </section>
 
     </div>
-
-  </div>
-
-</section>
-{/* STATS */}
-<section className="py-20 bg-white">
-
-  <div className="max-w-7xl mx-auto px-6">
-
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-      <div className="bg-indigo-50 p-8 rounded-3xl text-center">
-        <h3 className="text-5xl font-bold text-indigo-600">
-          17
-        </h3>
-        <p className="mt-2">
-          Total Classes
-        </p>
-      </div>
-
-      <div className="bg-indigo-50 p-8 rounded-3xl text-center">
-        <h3 className="text-5xl font-bold text-indigo-600">
-          42
-        </h3>
-        <p className="mt-2">
-          Total Sections
-        </p>
-      </div>
-
-      <div className="bg-indigo-50 p-8 rounded-3xl text-center">
-        <h3 className="text-5xl font-bold text-indigo-600">
-          38
-        </h3>
-        <p className="mt-2">
-          Teachers Assigned
-        </p>
-      </div>
-
-      <div className="bg-indigo-50 p-8 rounded-3xl text-center">
-        <h3 className="text-5xl font-bold text-indigo-600">
-          1250
-        </h3>
-        <p className="mt-2">
-          Students Enrolled
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-{/* CTA */}
-<section className="py-20 bg-slate-900 text-white">
-
-  <div className="max-w-4xl mx-auto text-center px-6">
-
-    <h2 className="text-5xl font-bold">
-      Ready To Streamline Academic Structure Management?
-    </h2>
-
-    <p className="mt-6 text-slate-300 text-lg">
-      Manage classes, sections, teachers and students
-      through a single academic dashboard.
-    </p>
-
-    <button className="mt-8 bg-indigo-600 hover:bg-indigo-700 px-8 py-4 rounded-xl font-semibold">
-      Request Demo
-    </button>
-
-  </div>
-
-</section>
-
-
-  </>
-  )
-  }
-  
-  export default AcademicStructure;
+  );
+}

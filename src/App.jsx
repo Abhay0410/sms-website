@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import AcademicStructure from "./components/modules/AcademicManagement";
 import AllModules from "./components/modules/AllModules";
+import StudentManagement from "./components/modules/StudentManagement";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/modules" element={<AllModules />} />
             <Route path="/academic-structure" element={<AcademicStructure />} />
+            <Route path="/student-management" element={<StudentManagement />} />
           </Routes>
         </main>
         <Footer />

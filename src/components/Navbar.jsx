@@ -55,7 +55,9 @@ const Navbar = () => {
               <Link
                 key={index}
                 to={
-                  module === "Academic Management" ? "/academic-structure" : "/modules"
+                  module === "Academic Management" ? "/academic-structure" : 
+                  module === "Student Management" ? "/student-management" : 
+                  "/modules"
                 }
                 className="
                   block px-3 py-2 text-[10px] text-slate-700
