@@ -1,7 +1,17 @@
 import AcedemicImg from "../../assets/academic-structure.png";
+import { useEffect } from "react";
+import SectionImg from "../../assets/CreateSection.png";
 
 
 function AcademicStructure() {
+
+   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
   return (        
   <>
 
@@ -68,6 +78,7 @@ function AcademicStructure() {
     </div>
   </div>
 </section>
+
 {/* FEATURES */}
 <section className="py-20 bg-white">
   <div className="max-w-7xl mx-auto px-6">
@@ -78,8 +89,9 @@ function AcademicStructure() {
       </h2>
 
       <p className="text-slate-500 mt-4 max-w-3xl mx-auto">
-        Manage classes, sections, teachers and student allocation
-        with a centralized academic structure system.
+      Create, update and organize academic classes for different
+    grades and sessions. Maintain a structured hierarchy for
+    efficient academic administration.
       </p>
     </div>
 
@@ -142,6 +154,7 @@ function AcademicStructure() {
     </div>
   </div>
 </section>
+
 {/* OVERVIEW */}
 <section className="py-20 bg-slate-50">
   <div className="max-w-7xl mx-auto px-6">
@@ -153,26 +166,39 @@ function AcademicStructure() {
           Complete Academic Structure Management
         </h2>
 
-        <p className="text-slate-600 leading-8">
-          Academic Structure Management enables institutions
-          to create and maintain classes, sections and
-          academic hierarchy through a centralized dashboard.
-        </p>
+       <p className="text-slate-600 leading-8">
+  Academic Structure Management enables schools, colleges and
+  educational institutions to define and maintain their academic
+  hierarchy in a structured manner. Administrators can create
+  multiple classes, organize sections and configure academic
+  sessions according to institutional requirements.
+</p>
 
-        <p className="text-slate-600 leading-8 mt-4">
-          Administrators can assign teachers, manage
-          student allocations, synchronize sessions and
-          monitor capacity utilization efficiently.
-        </p>
+<p className="text-slate-600 leading-8 mt-4">
+  The system simplifies teacher allocation, student enrollment
+  and section management while providing a centralized view of
+  academic data. Institutions can efficiently track section
+  capacity, student distribution and academic structure without
+  manual record keeping.
+</p>
+
+<p className="text-slate-600 leading-8 mt-4">
+  With session synchronization and quick search capabilities,
+  academic administrators can manage large volumes of academic
+  information while ensuring consistency, accuracy and improved
+  operational control.
+</p>
       </div>
 
       <div>
         <img
-          src="/images/academic-dashboard.png"
+          src={SectionImg}
           alt=""
           className="rounded-3xl shadow-xl"
         />
       </div>
+
+      
 
     </div>
 
@@ -353,6 +379,8 @@ function AcademicStructure() {
   </div>
 
 </section>
+
+
   </>
   )
   }
