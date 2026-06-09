@@ -132,7 +132,7 @@ export default function Footer() {
             </a>
             <span className="flex items-center gap-2.5 text-sm text-gray-400">
               <MapPin size={14} className="text-[#C62828] flex-shrink-0" />
-              Bhopal, Madhya Pradesh, India
+              Durg, Chhattisgarh, India
             </span>
           </div>
         </div>

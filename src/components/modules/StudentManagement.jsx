@@ -8,6 +8,7 @@ import {
   Search,
   Database
 } from "lucide-react";
+import AnimatedCounter from "../AnimatedCounter";
 
 const features = [
   {
@@ -61,10 +62,10 @@ const features = [
 ];
 
 const stats = [
-  { value: "1,250+", label: "Active Students" },
-  { value: "210", label: "New Admissions" },
-  { value: "95%", label: "Promotion Rate" },
-  { value: "320+", label: "Alumni Records" },
+  { to: 1250, suffix: "+", label: "Active Students" },
+  { to: 210, suffix: "", label: "New Admissions" },
+  { to: 95, suffix: "%", label: "Promotion Rate" },
+  { to: 320, suffix: "+", label: "Alumni Records" },
 ];
 
 const workflow = [
@@ -124,7 +125,9 @@ export default function StudentManagement() {
                 i !== stats.length - 1 ? "border-r border-white/20" : ""
               }`}
             >
-              <div className="text-3xl md:text-4xl font-bold">{s.value}</div>
+              <div className="text-3xl md:text-4xl font-bold">
+                <AnimatedCounter to={s.to} suffix={s.suffix} />
+              </div>
               <div className="text-xs text-white/70 mt-1 tracking-wide uppercase">
                 {s.label}
               </div>

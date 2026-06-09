@@ -9,6 +9,7 @@ import {
   BadgeCheck,
   CalendarClock,
 } from "lucide-react";
+import AnimatedCounter from "../AnimatedCounter";
 
 const features = [
   {
@@ -70,10 +71,10 @@ const features = [
 ];
 
 const stats = [
-  { value: "17", label: "Classes" },
-  { value: "42", label: "Sections" },
-  { value: "38", label: "Teachers Assigned" },
-  { value: "1,250", label: "Students Enrolled" },
+  { to: 17, suffix: "+", label: "Classes" },
+  { to: 42, suffix: "+", label: "Sections" },
+  { to: 38, suffix: "+", label: "Teachers Assigned" },
+  { to: 1250, suffix: "+", label: "Students Enrolled" },
 ];
 
 const workflow = [
@@ -129,7 +130,9 @@ export default function AcademicStructure() {
                 i !== stats.length - 1 ? "border-r border-white/20" : ""
               }`}
             >
-              <div className="text-3xl md:text-4xl font-bold">{s.value}</div>
+              <div className="text-3xl md:text-4xl font-bold">
+                <AnimatedCounter to={s.to} suffix={s.suffix} />
+              </div>
               <div className="text-xs text-white/70 mt-1 tracking-wide uppercase">
                 {s.label}
               </div>

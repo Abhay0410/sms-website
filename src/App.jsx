@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import AcademicStructure from "./components/modules/AcademicManagement";
 import AllModules from "./components/modules/AllModules";
 import StudentManagement from "./components/modules/StudentManagement";
+import Features from "./pages/Features";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/features" element={<Features />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/register" element={<RegisterSchool />} />
             <Route path="/contact" element={<Contact />} />
