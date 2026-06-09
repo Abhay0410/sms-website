@@ -7,312 +7,434 @@ import {
   FaUserFriends,
   FaSearch,
   FaBell,
-  FaAngleRight,
   FaCheckCircle,
-  FaClock
+  FaClock,
+  // FaAngleRight,
 } from 'react-icons/fa';
-import screenshot from '../../src/assets/adminDashboardImg.png';
 
-const DURATION = 8000;
-const UPDATE_INTERVAL = 40;
-const PROGRESS_STEP = (UPDATE_INTERVAL / DURATION) * 100;
+// ─── Replace these with your real screenshots / video thumbnails ───────────────
+import adminImg from '../../src/assets/adminDashboardImg.png';
+// If you have separate images per section, import them here too.
+// Otherwise the same image is reused (swap per section below).
+
+const STEP_DURATION = 3500; // ms per content step
+const PROGRESS_INTERVAL = 40;
 
 const profiles = [
   {
     id: 'admin',
     title: 'Admin Portal',
-    subtitle: 'Complete School ERP Control',
     icon: FaUserShield,
-    headerText: 'EduSphere ERP — Admin Portal',
-    sidebarLinks: ['User Registration', 'Bulk Imports', 'Academic Management', 'Fee Management', 'Staff HR', 'Payroll & Salary', 'Library', 'Transport'],
-    imageSrc: screenshot,
-    widgetTitle: 'System Automation Framework',
-    stats: [{ label: 'Active Students', value: '2,845' }, { label: 'Monthly Revenue', value: '₹4,52,000' }, { label: 'Staff Count', value: '142' }],
-    badge: 'SuperAdmin'
+    badge: 'SuperAdmin',
+    headerText: 'eduzager.erp — Admin Portal',
+    avatarChar: 'A',
+    accentColor: '#5346D6',
+    accentLight: '#EDE9FD',
+    steps: [
+      {
+        navLabel: 'User Registration',
+        stat: { label: 'Active Students', value: '2,845' },
+        heading: 'Register students & staff in seconds',
+        body: 'Bulk-import via CSV or enrol individually. Automatic role assignment and credential dispatch on save.',
+        img: adminImg,
+      },
+      {
+        navLabel: 'Fee Management',
+        stat: { label: 'Monthly Revenue', value: '₹4,52,000' },
+        heading: 'Automated fee collection & receipts',
+        body: 'Configurable fee structures, due-date reminders, and one-click digital receipts — zero manual follow-up.',
+        img: adminImg,
+      },
+      {
+        navLabel: 'Payroll & Salary',
+        stat: { label: 'Staff Count', value: '142' },
+        heading: 'Payroll processed in one click',
+        body: 'Auto-compute salaries, deductions, and PF. Generate payslips and push disbursements directly.',
+        img: adminImg,
+      },
+      {
+        navLabel: 'Academic Management',
+        stat: { label: 'Classes Active', value: '38' },
+        heading: 'End-to-end academic calendar control',
+        body: 'Set academic year, assign class teachers, schedule exams, and publish results — all from one screen.',
+        img: adminImg,
+      },
+    ],
   },
   {
     id: 'teacher',
     title: 'Teacher Hub',
-    subtitle: 'Academics & Attendance',
     icon: FaChalkboardTeacher,
-    headerText: 'EduSphere ERP — Teacher Hub',
-    sidebarLinks: ['My Classes', 'Schedule', 'Mark Attendance', 'Record Marks', 'Self Attendance', 'Apply Leave'],
-    imageSrc: screenshot,
-    widgetTitle: 'Live Attendance Grading Terminal',
-    stats: [{ label: 'Pending Grades', value: '3 Classes' }, { label: "Today's Attendance", value: '98%' }, { label: 'Upcoming Leaves', value: '0' }],
-    badge: 'Class Teacher'
+    badge: 'Class Teacher',
+    headerText: 'eduzager.erp — Teacher Hub',
+    avatarChar: 'T',
+    accentColor: '#0E7A55',
+    accentLight: '#E1F5EE',
+    steps: [
+      {
+        navLabel: 'Mark Attendance',
+        stat: { label: "Today's Attendance", value: '98%' },
+        heading: 'One-tap attendance for every class',
+        body: 'Mark present / absent / late with a single tap. Parents are notified instantly on absent marks.',
+        img: adminImg,
+      },
+      {
+        navLabel: 'Record Marks',
+        stat: { label: 'Pending Grades', value: '3 classes' },
+        heading: 'Grade entry with instant analytics',
+        body: 'Enter scores per student, see class average and distribution charts update live as you type.',
+        img: adminImg,
+      },
+      {
+        navLabel: 'My Schedule',
+        stat: { label: 'Periods Today', value: '6' },
+        heading: 'Daily timetable at a glance',
+        body: 'Your full week in a colour-coded grid. Tap any period to see class details or add a note.',
+        img: adminImg,
+      },
+    ],
   },
   {
     id: 'student',
     title: 'Student Panel',
-    subtitle: 'Classes & Timetables',
     icon: FaGraduationCap,
-    headerText: 'EduSphere ERP — Student Panel',
-    sidebarLinks: ['My Classes', 'Exam Results', 'Class Timetable', 'Attendance Tracker', 'Fee Receipts'],
-    imageSrc: screenshot,
-    widgetTitle: 'Academic Performance Hub',
-    stats: [{ label: 'Current Rank', value: 'Top 5%' }, { label: 'Overall Attendance', value: '94%' }, { label: 'Assignments Due', value: '2' }],
-    badge: 'Class XI-A'
+    badge: 'Class XI-A',
+    headerText: 'eduzager.erp — Student Panel',
+    avatarChar: 'S',
+    accentColor: '#B45309',
+    accentLight: '#FAEEDA',
+    steps: [
+      {
+        navLabel: 'Exam Results',
+        stat: { label: 'Current Rank', value: 'Top 5%' },
+        heading: 'Full result history, always accessible',
+        body: 'View marks, percentile, and subject-wise breakdown for every exam. Download report cards in one tap.',
+        img: adminImg,
+      },
+      {
+        navLabel: 'Attendance Tracker',
+        stat: { label: 'Overall Attendance', value: '94%' },
+        heading: 'Know exactly where you stand',
+        body: 'Day-by-day attendance log with a running percentage and alerts when you approach the minimum threshold.',
+        img: adminImg,
+      },
+      {
+        navLabel: 'Class Timetable',
+        stat: { label: 'Assignments Due', value: '2' },
+        heading: 'Never miss a class or deadline',
+        body: 'Live timetable with subject, teacher, and room number. Pending assignments surface right alongside it.',
+        img: adminImg,
+      },
+    ],
   },
   {
     id: 'parent',
     title: 'Parent Portal',
-    subtitle: 'Child Tracking & Financials',
     icon: FaUserFriends,
-    headerText: 'EduSphere ERP — Parent Hub',
-    sidebarLinks: ['My Children', 'Academic Hub', 'Financials Ledger', 'Transport Tracking', 'Communication Hub'],
-    imageSrc: screenshot,
-    widgetTitle: 'Fee Ledger Real-time Pipeline',
-    stats: [{ label: 'Pending Fees', value: '₹0.00' }, { label: 'Transport Status', value: 'In Transit' }, { label: 'Unread Alerts', value: '1' }],
-    badge: 'Guardian Access'
-  }
+    badge: 'Guardian Access',
+    headerText: 'eduzager.erp — Parent Hub',
+    avatarChar: 'P',
+    accentColor: '#9333EA',
+    accentLight: '#F5F0FE',
+    steps: [
+      {
+        navLabel: 'Academic Hub',
+        stat: { label: 'Pending Fees', value: '₹0.00' },
+        heading: "Your child's progress, always in view",
+        body: "Real-time marks, attendance, and teacher remarks — no more waiting for PTMs to know how they're doing.",
+        img: adminImg,
+      },
+      {
+        navLabel: 'Transport Tracking',
+        stat: { label: 'Bus ETA', value: '4 mins' },
+        heading: 'Live bus location on the map',
+        body: 'Track the school bus in real-time and get push notifications 5 minutes before pickup and drop-off.',
+        img: adminImg,
+      },
+      {
+        navLabel: 'Financials Ledger',
+        stat: { label: 'Last Payment', value: '₹12,000' },
+        heading: 'Full fee history & online payment',
+        body: 'View every transaction, download receipts, and pay outstanding dues directly within the app.',
+        img: adminImg,
+      },
+    ],
+  },
 ];
 
+const STEP_PROGRESS = (PROGRESS_INTERVAL / STEP_DURATION) * 100;
+
 export default function FeatureWalkthrough() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeProfile, setActiveProfile] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
   const [progress, setProgress] = useState(0);
-  const isInterrupted = useRef(false);
+  const timerRef = useRef(null);
 
-  // Auto-advance loop tracking progress steps
+  const profile = profiles[activeProfile];
+  const step = profile.steps[activeStep];
+
+  // Preload images to prevent flashing
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (isInterrupted.current) return;
-
-      setProgress((prev) => {
-        if (prev >= 100) {
-          setActiveIndex((current) => (current + 1) % profiles.length);
-          return 0;
-        }
-        return prev + PROGRESS_STEP;
+    profiles.forEach((p) => {
+      p.steps.forEach((s) => {
+        const img = new Image();
+        img.src = s.img;
       });
-    }, UPDATE_INTERVAL);
-
-    return () => clearInterval(timer);
+    });
   }, []);
 
-  const handleTabClick = (index) => {
-    if (index !== activeIndex) {
-      setActiveIndex(index);
-      setProgress(0);
-      // Optional: uncomment below to completely halt automation on interaction
-      // isInterrupted.current = true; 
-    }
+  const resetTo = (profileIdx, stepIdx = 0) => {
+    setActiveProfile(profileIdx);
+    setActiveStep(stepIdx);
+    setProgress(0);
   };
 
-  const ActiveIcon = profiles[activeIndex].icon;
+  useEffect(() => {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setProgress((prev) => {
+        const next = prev + STEP_PROGRESS;
+        if (next >= 100) {
+          setActiveStep((s) => {
+            const nextStep = s + 1;
+            if (nextStep >= profiles[activeProfile].steps.length) {
+              setActiveProfile((p) => (p + 1) % profiles.length);
+              return 0;
+            }
+            return nextStep;
+          });
+          return 0;
+        }
+        return next;
+      });
+    }, PROGRESS_INTERVAL);
+    return () => clearInterval(timerRef.current);
+  }, [activeProfile]);
 
   return (
-    <section className="py-12 px-4 max-w-[85rem] mx-auto w-full font-sans antialiased">
-      <div className="text-center mb-14">
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">
-          One platform. <span className="bg-gradient-to-r bg-clip-text text-transparent from-indigo-600 to-violet-500">Every user role.</span>
+    <section className="py-16 px-6 max-w-[85rem] w-full mx-auto font-sans antialiased">
+      {/* Headline */}
+      <div className="text-center mb-12">
+        <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+          One platform.{' '}
+          <span
+            className="bg-clip-text text-transparent"
+            style={{ backgroundImage: `linear-gradient(135deg, ${profiles[activeProfile].accentColor}, #a855f7)` }}
+          >
+            Every user role.
+          </span>
         </h2>
-        <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-          Experience a unified ecosystem engineered natively for every core stakeholder in your institution.
+        <p className="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">
+          A unified ecosystem built for every stakeholder — from administration to parents.
         </p>
       </div>
 
-      {/* Main Mac Mockup Frame Container */}
-      <div className="bg-white rounded-3xl shadow-[0_25px_60px_-15px_rgba(99,102,241,0.12)] border border-slate-200/80 overflow-hidden flex flex-col min-h-[680px]">
+      {/* Outer frame */}
+      <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-[0_20px_60px_-10px_rgba(0,0,0,0.08)] bg-white flex flex-col">
 
-        {/* Top Window Chrome Window Header */}
-        <div className="bg-slate-50 px-6 py-4 border-b border-slate-200/60 flex items-center justify-between select-none">
-          <div className="flex gap-2 w-20">
-            <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
-            <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
-            <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
+        {/* Window chrome */}
+        <div className="bg-slate-50 border-b border-slate-200 px-5 py-3 flex items-center justify-between select-none">
+          <div className="flex gap-1.5">
+            <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
+            <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
+            <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
           </div>
 
-          <div className="flex-1 max-w-md mx-auto bg-slate-200/60 rounded-lg py-1 px-3 flex items-center justify-center gap-2 text-xs font-medium text-slate-500 shadow-inner">
-            <FaSearch className="text-slate-400 text-[10px]" />
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={activeIndex}
-                initial={{ opacity: 0, y: -4 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 4 }}
-                transition={{ duration: 0.15 }}
-              >
-                {profiles[activeIndex].headerText}
-              </motion.span>
-            </AnimatePresence>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeProfile}
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 4 }}
+              transition={{ duration: 0.15 }}
+              className="flex-1 max-w-sm mx-6 bg-slate-200/50 rounded-md py-1 px-3 flex items-center gap-2 text-xs text-slate-500 font-medium"
+            >
+              <FaSearch className="text-slate-400 text-[10px]" />
+              {profile.headerText}
+            </motion.div>
+          </AnimatePresence>
 
-          <div className="flex items-center gap-3 w-20 justify-end text-slate-400">
-            <FaBell className="text-sm hover:text-slate-600 transition-colors cursor-pointer" />
-            <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-slate-300 to-indigo-200 border border-white shadow-sm flex items-center justify-center text-[9px] font-bold text-slate-600 uppercase">
-              {profiles[activeIndex].id[0]}
+          <div className="flex items-center gap-2.5">
+            <FaBell className="text-slate-400 text-sm" />
+            <div
+              className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white"
+              style={{ background: profile.accentColor }}
+            >
+              {profile.avatarChar}
             </div>
           </div>
         </div>
 
-        {/* Master Multi-Column Framework Grid layout */}
-        <div className="flex flex-col lg:flex-row flex-1 min-h-0 bg-slate-50/50">
+        {/* Body */}
+        <div className="flex flex-col lg:flex-row">
 
-          {/* LEFT INTERACTIVE TRIGGER SELECTORS RAIL */}
-          <div className="w-full lg:w-[28%] bg-white border-r border-slate-200/60 p-4 flex flex-col gap-2.5">
-            <span className="text-[11px] font-bold tracking-wider uppercase text-slate-400 px-2 mb-1">Select Persona</span>
-            {profiles.map((profile, index) => {
-              const isActive = activeIndex === index;
-              const Icon = profile.icon;
+          {/* ── LEFT: Persona tabs with their nav items inline ── */}
+          <div className="w-full lg:w-80 bg-white border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col overflow-y-auto shrink-0">
+            {profiles.map((p, pi) => {
+              const Icon = p.icon;
+              const isActiveProfile = pi === activeProfile;
               return (
-                <button
-                  key={profile.id}
-                  onClick={() => handleTabClick(index)}
-                  className={`relative p-4 rounded-xl text-left transition-all duration-300 group ${isActive ? "text-white shadow-md shadow-indigo-600/10" : "text-slate-600 hover:bg-slate-50"
+                <div key={p.id}>
+                  {/* Persona header row */}
+                  <button
+                    onClick={() => resetTo(pi)}
+                    className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-all border-b border-slate-100 ${
+                      isActiveProfile ? 'bg-slate-50' : 'hover:bg-slate-50/60'
                     }`}
-                >
-                  {isActive && (
-                    <motion.div
-                      layoutId="active-profile-pill"
-                      className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-indigo-700 rounded-xl"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-
-                  <div className="relative z-10 flex items-center gap-3.5">
-                    <div className={`p-2.5 rounded-lg shrink-0 transition-colors ${isActive ? 'bg-white/15 text-white' : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200/70'
-                      }`}>
-                      <Icon className="text-lg" />
+                  >
+                    <div
+                      className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                      style={{
+                        background: isActiveProfile ? p.accentColor : '#f1f5f9',
+                        color: isActiveProfile ? '#fff' : '#64748b',
+                      }}
+                    >
+                      <Icon className="text-sm" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between gap-2">
-                        <h3 className={`font-semibold text-sm ${isActive ? 'text-white' : 'text-slate-900'}`}>{profile.title}</h3>
-                        {isActive && (
-                          <span className="text-[9px] font-bold tracking-wide uppercase px-1.5 py-0.5 rounded bg-white/20 text-white backdrop-blur-sm">
-                            {profile.badge}
-                          </span>
-                        )}
-                      </div>
-                      <p className={`text-xs mt-0.5 truncate ${isActive ? 'text-indigo-100/80' : 'text-slate-400'}`}>{profile.subtitle}</p>
+                      <div className="text-sm font-semibold text-slate-800 truncate">{p.title}</div>
                     </div>
-                  </div>
+                    {isActiveProfile && (
+                      <span
+                        className="text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wide shrink-0"
+                        style={{ background: p.accentLight, color: p.accentColor }}
+                      >
+                        {p.badge}
+                      </span>
+                    )}
+                  </button>
 
-                  {isActive && (
-                    <div className="relative z-10 w-full h-[3px] bg-black/15 rounded-full mt-3.5 overflow-hidden">
-                      <div
-                        className="h-full bg-white rounded-full transition-all ease-linear"
-                        style={{
-                          width: `${progress}%`,
-                          transitionDuration: `${UPDATE_INTERVAL}ms`
+                  {/* Steps / nav — only visible for active profile with animation */}
+                  <AnimatePresence initial={false}>
+                    {isActiveProfile && (
+                      <motion.div
+                        key="steps-content"
+                        initial="collapsed"
+                        animate="open"
+                        exit="collapsed"
+                        variants={{
+                          open: { opacity: 1, height: 'auto' },
+                          collapsed: { opacity: 0, height: 0 },
                         }}
-                      />
-                    </div>
-                  )}
-                </button>
+                        transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="bg-slate-50/60">
+                          {p.steps.map((s, si) => {
+                            const isActiveStep = si === activeStep;
+                            return (
+                              <button
+                                key={si}
+                                onClick={() => { setActiveStep(si); setProgress(0); }}
+                                className="w-full flex items-center gap-2 px-5 py-2.5 text-left group transition-all"
+                              >
+                                {/* Step progress pill */}
+                                <div
+                                  className="w-0.5 h-4 rounded-full shrink-0 transition-all"
+                                  style={{ background: isActiveStep ? p.accentColor : '#e2e8f0' }}
+                                />
+                                <span
+                                  className={`text-xs font-medium truncate transition-colors ${
+                                    isActiveStep ? 'text-slate-900' : 'text-slate-400 group-hover:text-slate-600'
+                                  }`}
+                                >
+                                  {s.navLabel}
+                                </span>
+                                {isActiveStep && (
+                                  <div className="ml-auto shrink-0">
+                                    <div className="w-14 h-1 bg-slate-200 rounded-full overflow-hidden">
+                                      <div
+                                        className="h-full rounded-full transition-all ease-linear"
+                                        style={{
+                                          width: `${progress}%`,
+                                          background: p.accentColor,
+                                          transitionDuration: `${PROGRESS_INTERVAL}ms`,
+                                        }}
+                                      />
+                                    </div>
+                                  </div>
+                                )}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                                </div>
               );
             })}
           </div>
 
-          {/* RIGHT WORKSPACE PREVIEW ENGINE CONTAINER */}
-          <div className="w-full lg:w-[72%] flex flex-col md:flex-row min-h-0 relative">
-            <AnimatePresence mode="wait">
+          {/* ── RIGHT: Content area ── */}
+          <div className="flex-1 bg-slate-50/40 flex flex-col min-w-0">
+            <AnimatePresence mode="popLayout">
               <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, scale: 0.99, x: 8 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.99, x: -8 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="w-full flex flex-col md:flex-row flex-1"
+                key={`${activeProfile}-${activeStep}`}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                layout // Add layout prop for smooth height transitions
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="flex flex-col w-full p-3 lg:p-4 gap-2"
               >
-                {/* SUB-SIDEBAR SYSTEM NAVIGATION MODULES */}
-                <div className="w-full md:w-56 bg-white/40 border-b md:border-b-0 md:border-r border-slate-200/50 p-4 flex flex-col gap-1 shrink-0 overflow-y-auto max-h-[180px] md:max-h-none">
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 px-2.5 flex items-center justify-between">
-                    <span>Navigation Structure</span>
-                  </div>
-                  {profiles[activeIndex].sidebarLinks.map((link, idx) => (
-                    <div
-                      key={link}
-                      className={`text-xs font-semibold px-2.5 py-2 rounded-lg cursor-pointer transition-all flex items-center justify-between group ${idx === 0
-                        ? "bg-white text-indigo-600 shadow-sm border border-slate-100"
-                        : "text-slate-500 hover:text-slate-800 hover:bg-white/60"
-                        }`}
-                    >
-                      <span className="truncate">{link}</span>
-                      <FaAngleRight className={`text-[10px] transition-transform ${idx === 0 ? 'text-indigo-500 translate-x-0.5' : 'opacity-0 group-hover:opacity-100 text-slate-400'}`} />
-                    </div>
-                  ))}
+                {/* Heading (Fixed Height to prevent any container fluctuations) */}
+                <div className="h-16 md:h-20 flex items-center">
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 leading-snug">{step.heading}</h3>
                 </div>
 
-                {/* CENTRAL CONTENT INTERACTIVE WORKSPACE */}
-                <div className="flex-1 p-5 md:p-6 lg:p-7 flex flex-col gap-5 min-w-0 bg-slate-50/30 overflow-y-auto">
-
-                  {/* Real-time Metric Dashboard Widget Strip */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 shrink-0">
-                    {profiles[activeIndex].stats.map((stat, i) => (
-                      <div key={i} className="bg-white p-3.5 rounded-xl border border-slate-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex items-center justify-between group hover:border-indigo-200 transition-colors">
-                        <div>
-                          <div className="text-[11px] font-medium text-slate-400 tracking-wide mb-0.5">{stat.label}</div>
-                          <div className="text-lg font-bold text-slate-800 tracking-tight">{stat.value}</div>
-                        </div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500/80 group-hover:scale-125 transition-transform" />
-                      </div>
-                    ))}
+                {/* Image / video preview */}
+                <div className="w-full aspect-video bg-slate-900 rounded-xl overflow-hidden relative group">
+                  {/* Header bar inside preview */}
+                  <div className="absolute top-0 left-0 right-0 z-10 px-5 pt-4 pb-2 bg-linear-to-b from-slate-900/80 to-transparent">
+                    <div className="flex items-center gap-2">
+                      <span className="relative flex h-2 w-2">
+                        <span
+                          className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                          style={{ background: profile.accentColor }}
+                        />
+                        <span
+                          className="relative inline-flex rounded-full h-2 w-2"
+                          style={{ background: profile.accentColor }}
+                        />
+                      </span>
+                      <span className="text-xs font-semibold text-white">{step.navLabel}</span>
+                      <span
+                        className="ml-auto text-[10px] px-2 py-0.5 rounded-full font-semibold flex items-center gap-1"
+                        style={{ background: profile.accentLight, color: profile.accentColor }}
+                      >
+                        <FaClock className="text-[9px]" /> Live
+                      </span>
+                    </div>
                   </div>
 
-                  {/* HTML5 Video Asset Frame Box Wrapper */}
-                  <div className="flex-1 bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-slate-200/80 overflow-hidden flex flex-col min-h-[70] relative">
-                    <div className="px-4 py-3 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center shrink-0">
-                      <div className="flex items-center gap-2">
-                        <span className="flex h-2 w-2 relative">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-                        </span>
-                        <h4 className="font-bold text-slate-700 text-xs tracking-wide">
-                          {profiles[activeIndex].widgetTitle}
-                        </h4>
+                  {/* The actual image */}
+                  <img
+                    src={step.img}
+                    alt={step.navLabel}
+                    className="w-full h-full object-contain absolute inset-0" // Changed to object-contain for full visibility
+                  />
+
+                  {/* Bottom overlay */}
+                  <div className="absolute bottom-3 left-3 right-3 bg-slate-900/50 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2.5 flex items-center justify-between opacity-90 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                    <div className="flex items-center gap-2.5">
+                      <div
+                        className="p-1.5 rounded-md"
+                        style={{ background: 'rgba(34,197,94,0.2)', color: '#4ade80' }}
+                      >
+                        <FaCheckCircle className="text-xs" />
                       </div>
-                      <div className="text-[10px] font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-full flex items-center gap-1">
-                        <FaClock className="text-[9px]" /> Dynamic System Render
-                      </div>
-                    </div>
-
-                    {/* Bug-free Video Swapping Rendering Engine Area */}
-                    <div className="flex-1 bg-slate-900 relative min-h-0 group overflow-hidden">
-
-                      <div className="absolute top-4 left-5 z-10">
-                        
-
-                        <h2 className="text-[10px] font-bold text-white leading-none">
-                          EduSphere ERP
-                        </h2>
-
-                        <p className="text-[11px] text-slate-400 mt-1">
-                          Complete School Management Platform
-                        </p>
-                      </div>
-
-                      {profiles.map((p, index) => (
-                        index === activeIndex && (
-                          <img
-                            key={p.id}
-                            src={p.imageSrc}
-                            alt={p.title}
-                            className="w-full h-full object-contain absolute "
-                          />
-                        )
-                      ))}
-
-                      {/* Interactive Glassmorphism Overlay UI Card */}
-                      <div className="absolute bottom-3 left-3 right-3 bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-lg p-3 text-white flex items-center justify-between shadow-lg transform translate-y-1 group-hover:translate-y-0 opacity-90 group-hover:opacity-100 transition-all duration-300">
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="p-1.5 bg-emerald-500/20 text-emerald-400 rounded-md shrink-0">
-                            <FaCheckCircle className="text-xs" />
-                          </div>
-                          <div className="min-w-0">
-                            <p className="text-[11px] font-bold tracking-wide text-white truncate">Functional Module Live</p>
-                            <p className="text-[10px] text-slate-300/90 truncate">Securely decoupled Multi-Tenant Role Access Verified.</p>
-                          </div>
-                        </div>
-                        <div className="flex gap-1 shrink-0 px-2 py-1 bg-white/15 text-[9px] font-black tracking-wider rounded uppercase text-white/90">
-                          RBAC Passed
-                        </div>
+                      <div>
+                        <p className="text-[11px] font-bold text-white">{profile.title} — module live</p>
+                        <p className="text-[10px] text-slate-300/80">Multi-tenant RBAC verified</p>
                       </div>
                     </div>
-
+                    <span className="text-[9px] font-black tracking-widest uppercase text-white/70 bg-white/10 px-2 py-1 rounded">
+                      RBAC ✓
+                    </span>
                   </div>
                 </div>
+
               </motion.div>
             </AnimatePresence>
           </div>
