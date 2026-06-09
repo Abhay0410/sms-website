@@ -7,8 +7,6 @@ import {
   Users,
   Search,
   Database
-  Database,
-  ArrowRight
 } from "lucide-react";
 
 const features = [
@@ -150,23 +148,6 @@ export default function StudentManagement() {
             academic history, attendance records, documents, and class allocations through a 
             centralized platform. Filtering and bulk actions make student administration effortless.
           </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div>
-            <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
-              What Is This Module
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight">
-              The Complete Student Record Hub
-            </h2>
-          </div>
-          <div className="bg-gray-50 p-6 md:p-8 rounded-2xl border-l-4 border-[#C62828]">
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-              Student Management enables educational institutions to maintain comprehensive 
-              student records from admission to graduation. Administrators can manage personal details, 
-              academic history, attendance records, documents, and class allocations through a 
-              centralized platform. Filtering and bulk actions make student administration effortless.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -179,20 +160,6 @@ export default function StudentManagement() {
           <h2 className="text-3xl md:text-4xl font-bold text-black">
             Simplify the Student Journey.
           </h2>
-        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
-              Six Core Features
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-black">
-              Simplify the Student Journey.
-            </h2>
-          </div>
-          <div className="md:text-right flex-shrink-0">
-            <button className="text-sm font-semibold text-[#C62828] hover:text-black transition-colors flex items-center gap-2 md:justify-end">
-              Explore full documentation <ArrowRight size={16} />
-            </button>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
