@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+
 export default function RegisterSchool() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -54,8 +56,8 @@ export default function RegisterSchool() {
         }
       };
 
-      // 2. Hit the PUBLIC registration endpoint, NOT the superadmin endpoint!
-      const response = await axios.post('http://localhost:5000/api/schools/register', payload);
+      // 2. Hit the PUBLIC registration endpoint dynamically
+      const response = await axios.post(`${API_BASE_URL}/api/schools/register`, payload);
 
       if (response.data.success) {
         setSuccess(true);
