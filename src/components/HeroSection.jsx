@@ -2,14 +2,11 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20 overflow-hidden">
+    <section className="max-w-7xl mx-auto px-6 pt-12 pb-20 overflow-hidden">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SECTION */}
         <div>
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 font-semibold text-sm mb-6">
-            ✨ EduZager v2.0 is now live
-          </div>
 
           <h1 className="text-5xl lg:text-7xl font-black leading-tight text-slate-900">
             Your Complete

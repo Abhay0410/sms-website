@@ -26,7 +26,6 @@ import {
   Shuffle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import AnimatedCounter from "../components/AnimatedCounter";
 import HeroImg from "../assets/eduzager_features_hero.png";
 
@@ -193,10 +192,6 @@ const ModuleCard = ({ icon, title, desc, path }) => (
 );
 
 export default function Features() {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
-
   return (
     <div className="font-sans text-black bg-white">
       {/* Hero Section with Stats - Complete restructure */}
@@ -206,20 +201,20 @@ export default function Features() {
           <img
             src={HeroImg}
             alt="EduZager Dashboard"
-            className="w-full h-[660px] block"
+            className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[660px] object-cover object-top block"
           />
         </div>
 
         {/* Stats Bar */}
         <div className="bg-[#C62828] w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-3 text-white">
-              <div className="px-4 py-8 text-center sm:border-r border-white/20">
+            <div className="grid grid-cols-1 sm:grid-cols-3 text-white divide-y sm:divide-y-0 sm:divide-x divide-white/20">
+              <div className="px-4 py-8 text-center border-b sm:border-b-0 sm:border-r border-white/20">
                 <div className="text-3xl md:text-4xl font-bold">
                   <AnimatedCounter to={15} suffix="+" /> Modules
                 </div>
               </div>
-              <div className="px-4 py-8 text-center sm:border-r border-white/20">
+              <div className="px-4 py-8 text-center border-b sm:border-b-0 sm:border-r border-white/20">
                 <div className="text-3xl md:text-4xl font-bold">
                   <AnimatedCounter to={1} /> Platform
                 </div>
@@ -299,7 +294,7 @@ export default function Features() {
       </section>
 
       {/* Comparison Table Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-20 border-b border-gray-100">
+      <section id="comparison-table" className="px-4 sm:px-6 lg:px-8 py-20 border-b border-gray-100 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight">
@@ -334,7 +329,7 @@ export default function Features() {
       </section>
 
       {/* Role Benefits Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-20 border-b border-gray-100">
+      <section id="role-benefits" className="px-4 sm:px-6 lg:px-8 py-20 border-b border-gray-100 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight">

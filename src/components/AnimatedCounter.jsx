@@ -12,7 +12,9 @@ const AnimatedCounter = ({ from = 0, to, suffix = "", prefix = "" }) => {
         duration: 1.5,
         ease: "easeOut",
         onUpdate(value) {
-          ref.current.textContent = prefix + Math.floor(value) + suffix;
+          if (ref.current) {
+            ref.current.textContent = prefix + Math.floor(value) + suffix;
+          }
        }
     });
      return () => controls.stop();

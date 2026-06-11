@@ -1,5 +1,5 @@
 import StudentOverviewImg from "../../assets/eduzagerstudentmagement.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   UserPlus,
   ArrowUpRight,
@@ -99,10 +99,6 @@ const benefits = [
 export default function StudentManagement() {
   const [activeFeature, setActiveFeature] = useState(null);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
-
   return (
     <div className="font-sans text-black bg-white">
 
@@ -121,8 +117,10 @@ export default function StudentManagement() {
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`px-10 py-8 text-white ${
-                i !== stats.length - 1 ? "border-r border-white/20" : ""
+              className={`px-6 md:px-10 py-6 md:py-8 text-center text-white border-white/20
+                ${(i === 0 || i === 2) ? 'sm:border-r' : ''}
+                ${(i === 0 || i === 1) ? 'border-b md:border-b-0 border-white/20' : ''}
+                ${i === 1 ? 'md:border-r border-white/20' : ''}
               }`}
             >
               <div className="text-3xl md:text-4xl font-bold">

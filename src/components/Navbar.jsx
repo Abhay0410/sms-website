@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, Menu, X, Search, ArrowUpRight } from "lucide-react";
+import { useState, useRef, useEffect, useMemo } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ChevronDown, Menu, X, Search, ArrowUpRight, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // ── Module list with icons (emoji as lightweight stand-in for lucide) ──
 const modules = [
@@ -26,6 +27,27 @@ const navLinks = [
   { label: "Pricing",  path: "/pricing"  },
   { label: "About",    path: "/about"    },
   { label: "Contact",  path: "/contact"  },
+];
+
+// ── Search Data Aggregation (Expanded for Site-Wide Search) ──
+const searchData = [
+  // Pages
+  ...navLinks.map(l => ({ ...l, category: 'Pages', icon: '📄' })),
+  // Modules
+  ...modules.map(m => ({ ...m, category: 'Modules' })),
+  // Page Sections
+  { label: "Our Core Values", path: "/about#our-values", category: 'About Us', icon: '🎯' },
+  { label: "The EduZager Solution", path: "/about#solution", category: 'About Us', icon: '💡' },
+  { label: "Pre-built Pricing Plans", path: "/pricing#plans", category: 'Pricing', icon: '📦' },
+  { label: "Build Your Own Plan", path: "/pricing#custom-plan", category: 'Pricing', icon: '🛠️' },
+  { label: "Pricing FAQs", path: "/pricing#faq", category: 'Pricing', icon: '❓' },
+  { label: "Feature Comparison Table", path: "/features#comparison-table", category: 'Features', icon: '📊' },
+  { label: "Benefits for Every Role", path: "/features#role-benefits", category: 'Features', icon: '👥' },
+  
+  // Actions
+  { label: "Book a Demo", path: "/contact", category: "Actions", icon: '🚀' },
+  { label: "Start Free Trial", path: "/register", category: "Actions", icon: '⚡' },
+  { label: "Get Started", path: "/register", category: "Actions", icon: '⚡' },
 ];
 
 // ── Logo mark — SVG inline, no external deps ──
@@ -58,15 +80,26 @@ const Logo = () => (
 export default function Navbar() {
   const [megaOpen,   setMegaOpen]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileModulesOpen, setMobileModulesOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
+  const [searchQuery, setSearchQuery] = useState("");
   const [scrolled,   setScrolled]   = useState(false);
   const megaRef  = useRef(null);
+  const searchContainerRef = useRef(null);
+  const searchInputRef = useRef(null);
+  const searchInputRefMobile = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // close mega on route change
-  useEffect(() => {
+  const handleNavigation = (path) => {
     setMegaOpen(false);
     setMobileOpen(false);
-  }, [location.pathname]);
+    setIsSearchOpen(false);
+    setMobileModulesOpen(false);
+    navigate(path);
+  };
 
   // shadow on scroll
   useEffect(() => {
@@ -86,6 +119,64 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  // close desktop search on outside click
+  useEffect(() => {
+    const handler = (e) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target)) {
+        setIsSearchOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  // Cmd+K Shortcut & Escape to close
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+      }
+      if (e.key === 'Escape') {
+        setIsSearchOpen(false);
+        searchInputRef.current?.blur();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Filter search results
+  const filteredSearch = useMemo(() => {
+    if (!searchQuery) return [];
+    return searchData.filter(item =>
+      item.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery]);
+
+  const handleSearchNavigate = (path) => {
+    setIsSearchOpen(false);
+    setSearchQuery('');
+    setHighlightedIndex(-1);
+    handleNavigation(path);
+  };
+
+  const handleSearchKeyDown = (e) => {
+    if (filteredSearch.length === 0) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setHighlightedIndex(prev => (prev + 1) % filteredSearch.length);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setHighlightedIndex(prev => (prev - 1 + filteredSearch.length) % filteredSearch.length);
+    } else if (e.key === 'Enter' && highlightedIndex >= 0) {
+      e.preventDefault();
+      handleSearchNavigate(filteredSearch[highlightedIndex].path);
+    }
+  };
+
   return (
     <>
       <nav
@@ -101,14 +192,14 @@ export default function Navbar() {
           <Logo />
 
           {/* ── CENTER: Nav links (desktop) ── */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
 
             {/* Modules mega trigger */}
             <div 
               ref={megaRef} 
-              className="relative"
               onMouseEnter={() => setMegaOpen(true)}
               onMouseLeave={() => setMegaOpen(false)}
+              className="relative"
             >
               <Link
                 to="/modules"
@@ -128,7 +219,7 @@ export default function Navbar() {
 
               {/* ── MEGA DROPDOWN ── */}
               {megaOpen && (
-                <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[640px] bg-white border border-gray-200 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden">
+                <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-160 bg-white border border-gray-200 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden">
 
                   {/* header strip */}
                   <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
@@ -148,6 +239,7 @@ export default function Navbar() {
                       <Link
                         key={mod.path}
                         to={mod.path}
+                        onClick={() => handleNavigation(mod.path)}
                         className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm text-gray-700 hover:bg-red-50 hover:text-[#C62828] transition-all group"
                       >
                         <span className="text-base leading-none">{mod.icon}</span>
@@ -159,7 +251,7 @@ export default function Navbar() {
                   {/* footer strip */}
                   <div className="px-6 py-3 bg-gray-50 border-t border-gray-100 flex items-center gap-2">
                     <span className="text-xs text-gray-400">Need a custom module?</span>
-                    <Link to="/contact" className="text-xs text-[#C62828] font-semibold hover:underline">
+                    <Link to="/contact" onClick={() => handleNavigation('/contact')} className="text-xs text-[#C62828] font-semibold hover:underline">
                       Talk to us →
                     </Link>
                   </div>
@@ -172,6 +264,7 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={() => handleNavigation(link.path)}
                 className={`
                   px-3 py-2 rounded-lg text-sm font-medium transition-all
                   ${location.pathname === link.path
@@ -185,14 +278,26 @@ export default function Navbar() {
           </div>
 
           {/* ── RIGHT: Actions ── */}
-          <div className="hidden md:flex items-center gap-2">
-            {/* Search */}
-            <button
-              className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-500 hover:text-black hover:bg-gray-100 transition-all"
-              aria-label="Search"
-            >
-              <Search size={16} />
-            </button>
+          <div className="hidden lg:flex items-center gap-2">
+            {/* Search Input with Dropdown */}
+            <div ref={searchContainerRef} className="relative">
+              <div className="group flex items-center gap-2 px-3 h-10 mr-2 w-56 rounded-lg bg-slate-100 border border-slate-200 text-slate-500 focus-within:ring-2 focus-within:ring-[#C62828] focus-within:border-transparent transition-all">
+                <Search size={16} className="text-slate-400 shrink-0" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  placeholder="Search..."
+                  className="text-sm w-full bg-transparent outline-none text-slate-800 placeholder-slate-500"
+                  value={searchQuery}
+                  onChange={(e) => { setSearchQuery(e.target.value); setHighlightedIndex(-1); }}
+                  onFocus={() => setIsSearchOpen(true)}
+                  onKeyDown={handleSearchKeyDown}
+                />
+              </div>
+
+              {/* Search Results Dropdown */}
+              <AnimatePresence>{isSearchOpen && filteredSearch.length > 0 && <SearchResults results={filteredSearch} onNavigate={handleSearchNavigate} highlightedIndex={highlightedIndex} setHighlightedIndex={setHighlightedIndex} />}</AnimatePresence>
+            </div>
 
             {/* Login */}
             <Link
@@ -220,14 +325,26 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* ── MOBILE: hamburger ── */}
-          <button
-            className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 transition-all"
-            onClick={() => setMobileOpen((o) => !o)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* ── MOBILE: actions ── */}
+          <div className="flex lg:hidden items-center gap-1">
+            <button
+              onClick={() => {
+                setMobileOpen(true);
+                setTimeout(() => searchInputRefMobile.current?.focus(), 100);
+              }}
+              className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 transition-all"
+              aria-label="Search"
+            >
+              <Search size={20} />
+            </button>
+            <button
+              className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100 transition-all"
+              onClick={() => setMobileOpen((o) => !o)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -236,7 +353,7 @@ export default function Navbar() {
         className={`
           fixed inset-0 z-40 bg-white flex flex-col
           transition-transform duration-300 ease-in-out
-          md:hidden
+          lg:hidden
           ${mobileOpen ? "translate-x-0" : "translate-x-full"}
         `}
       >
@@ -247,33 +364,57 @@ export default function Navbar() {
 
         <div className="flex-1 overflow-y-auto px-6 py-6">
 
-          {/* Modules section */}
-          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
-            Modules
-          </p>
-          <div className="grid grid-cols-2 gap-1 mb-8">
-            {modules.map((mod) => (
-              <Link
-                key={mod.path}
-                to={mod.path}
-                className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm text-gray-700 hover:bg-red-50 hover:text-[#C62828] transition-all"
+          {/* Accordion for Modules */}
+          <button
+            onClick={() => setMobileModulesOpen(!mobileModulesOpen)}
+            className="flex items-center justify-between w-full px-3 py-3 mb-2 rounded-xl text-base font-bold text-gray-900 hover:bg-gray-100 transition-all"
+          >
+            <span>Modules</span>
+            <ChevronDown size={18} className={`transition-transform duration-200 ${mobileModulesOpen ? "rotate-180 text-[#C62828]" : ""}`} />
+          </button>
+
+          <AnimatePresence>
+            {mobileModulesOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                className="overflow-hidden"
               >
-                <span className="text-base leading-none">{mod.icon}</span>
-                <span className="font-medium leading-tight">{mod.label}</span>
-              </Link>
-            ))}
-          </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 pl-4 mb-4 border-l-2 border-red-100 ml-3 mt-1">
+                  {modules.map((mod) => (
+                    <Link
+                      key={mod.path}
+                      to={mod.path}
+                      onClick={() => handleNavigation(mod.path)}
+                      className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm text-gray-700 hover:bg-red-50 hover:text-[#C62828] transition-all"
+                    >
+                      <span className="text-base leading-none">{mod.icon}</span>
+                      <span className="font-medium leading-tight">{mod.label}</span>
+                    </Link>
+                  ))}
+                  <Link
+                    to="/modules"
+                    onClick={() => handleNavigation('/modules')}
+                    className="mt-2 flex items-center justify-center gap-2 text-sm font-semibold text-[#C62828] bg-red-50 hover:bg-red-100 rounded-xl py-3 transition-colors col-span-1 sm:col-span-2"
+                  >
+                    View All Modules <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div className="w-full h-px bg-gray-100 my-4"></div>
 
           {/* Other links */}
-          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
-            Company
-          </p>
           <div className="flex flex-col gap-1 mb-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="px-3 py-2.5 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-100 transition-all"
+                onClick={() => handleNavigation(link.path)}
+                className="px-3 py-3 rounded-xl text-base font-bold text-gray-900 hover:bg-gray-100 transition-all"
               >
                 {link.label}
               </Link>
@@ -311,3 +452,61 @@ export default function Navbar() {
     </>
   );
 }
+
+const SearchResults = ({ results, onNavigate, highlightedIndex, setHighlightedIndex }) => {
+  const resultsRef = useRef(null);  
+
+  useEffect(() => {
+    if (highlightedIndex >= 0 && resultsRef.current) {
+      const highlightedElement = resultsRef.current.querySelector(`[data-index="${highlightedIndex}"]`);
+      highlightedElement?.scrollIntoView({ block: 'nearest' });
+    }
+  }, [highlightedIndex]);  
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.2 }}
+      className="absolute top-full mt-2 w-[600px] -ml-40 bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200"
+    >
+      <div ref={resultsRef} className="max-h-[70vh] overflow-y-auto p-2">
+        {results.map((item, idx) => {
+          const showCategory = idx === 0 || item.category !== results[idx - 1].category;
+          return (
+            <div key={item.path + idx}>
+              {showCategory && (
+                <h3 className="px-3 pt-4 pb-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                  {item.category}
+                </h3>
+              )}
+              <button
+                data-index={idx}
+                onClick={() => onNavigate(item.path)}
+                onMouseEnter={() => setHighlightedIndex(idx)}
+                className={`w-full flex items-center justify-between px-3 py-3 rounded-xl transition-all group text-left
+                  ${highlightedIndex === idx ? 'bg-red-50' : 'hover:bg-slate-50'}
+                `}
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors shadow-sm
+                    ${highlightedIndex === idx 
+                      ? 'bg-white border border-red-100 text-[#C62828]' 
+                      : 'bg-white border border-slate-200 text-slate-500'}`
+                  }>
+                    <span className="text-sm">{item.icon}</span>
+                  </div>
+                  <span className="text-sm font-bold text-slate-700 group-hover:text-slate-900 transition-colors">
+                    {item.label}
+                  </span>
+                </div>
+                <ArrowRight size={16} className="text-slate-300 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </motion.div>
+  );
+};
