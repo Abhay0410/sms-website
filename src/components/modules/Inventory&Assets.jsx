@@ -1,4 +1,4 @@
-import AcademicImg from "../../assets/edzageracdemicmangment.png";
+import InventoryAssets from "../../assets/Inventory & Assets.png";
 import { useState } from "react";
 import {
   Package,
@@ -214,14 +214,14 @@ export default function AcademicStructure() {
       {/* ── HERO ── */}
       <section className="w-full bg-white border-b border-slate-100">
         <img
-          src={AcademicImg}
+          src={InventoryAssets}
           alt="Academic Management Dashboard"
           className="w-full h-auto block"
         />
       </section>
 
       {/* ── STATS STRIP ── */}
-      <section className="bg-[#C62828]">
+      <section className="bg-red-500">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((s, i) => (
             <div
