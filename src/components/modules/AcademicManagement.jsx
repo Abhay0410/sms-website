@@ -116,13 +116,13 @@ export default function AcademicStructure() {
         <img
           src={AcademicImg}
           alt="Academic Management Dashboard"
-          className="w-full h-auto block"
+          className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[660px] object-cover object-top block"
         />
       </section>
 
       {/* ── STATS STRIP ── */}
       <section className="bg-[#C62828]">
-        <div className="grid grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
           {stats.map((s, i) => (
             <div
               key={s.label}

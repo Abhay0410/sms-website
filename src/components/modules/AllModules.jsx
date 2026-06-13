@@ -360,6 +360,25 @@ const modulesData = [
   },
 ];
 
+// Map only the modules that actually have dedicated pages
+const validPaths = {
+  "Transport Management System": "/transport-management",
+  "Academic Management": "/academic-structure",
+  "Library Management System": "/library-management",
+  "Student Management": "/student-management",
+  "Teacher Management": "/teacher-management",
+  "Admission & Enquiry": "/admission-and-enquiry",
+  "Result Management": "/result-management",
+  "HR & Payroll": "/hr-payroll",
+  "Inventory & Assets": "/inventory-management",
+  "Financial Ledger": "/financial-ledger",
+  "Communication": "/communication",
+  "Fees & Fine Management": "/fee-management",
+  "Staff Management": "/staff-management",
+  "Child Management": "/child-management",
+  "Bulk Import": "/bulk-import",
+};
+
 const AllModules = () => {
   return (
     <section className="bg-[#FFFFFF] min-h-screen font-sans">
@@ -394,41 +413,8 @@ const AllModules = () => {
           {modulesData.map((module, index) => {
             const Icon = module.icon;
             
-            // Create an SEO friendly URL slug from the title
-            const slug = module.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-            
-            const linkTo = module.title === "Academic Management" 
-              ? "/academic-structure"
-              : module.title === "Student Management"
-              ? "/student-management"
-              : module.title === "Teacher Management"
-              ? "/teacher-management"
-              : module.title === "Fee Management"
-              ? "/fee-management"
-              : module.title === "Admission & Enquiry"
-              ? "/admission-and-enquiry"
-              : module.title === "Result Management"
-              ? "/result-management"
-              : module.title === "HR & Payroll"
-              ? "/hr-payroll"
-              : module.title === "Library Management"
-              ? "/library-management"
-              : module.title === "Transport Management"
-              ? "/transport-management"
-              : module.title === "Communication "
-              ? "/communication"
-              : module.title === "Staff Management"
-              ? "/staff-management"
-              : module.title === "Child Management"
-              ? "/child-management"
-              : module.title === "Bulk Import"
-              ? "/bulk-import"
-              : module.title === "Inventory Management"
-              ? "/inventory-management"
-              : module.title === "Financial Ledger"
-              ? "/financial-ledger"
-            
-              : `/modules/${slug}`;
+            // Lookup to see if this module has a created page
+            const linkTo = validPaths[module.title];
 
             return (
               <div key={index} className="flex flex-col items-start group">
@@ -448,12 +434,20 @@ const AllModules = () => {
                 </p>
                 
                 {/* Call To Action Button */}
-                <Link
-                  to={linkTo}
-                  className="inline-flex items-center gap-2 text-[#D32F2F] border border-[#D32F2F] rounded-full px-5 py-2 text-sm font-medium hover:bg-[#D32F2F] hover:text-[#FFFFFF] transition-colors duration-300"
-                >
-                  Read more <ArrowRight size={16} />
-                </Link>
+                {linkTo ? (
+                  <Link
+                    to={linkTo}
+                    className="inline-flex items-center gap-2 text-[#D32F2F] border border-[#D32F2F] rounded-full px-5 py-2 text-sm font-medium hover:bg-[#D32F2F] hover:text-[#FFFFFF] transition-colors duration-300"
+                  >
+                    Read more <ArrowRight size={16} />
+                  </Link>
+                ) : (
+                  <span
+                    className="inline-flex items-center gap-2 text-gray-400 border border-gray-200 bg-gray-50 rounded-full px-5 py-2 text-sm font-medium cursor-not-allowed select-none"
+                  >
+                    Coming Soon
+                  </span>
+                )}
               </div>
             );
           })}

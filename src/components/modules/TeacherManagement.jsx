@@ -13,7 +13,7 @@ import {
     Activity,
 } from "lucide-react";
 import AnimatedCounter from "../AnimatedCounter";
-
+// import teacherManagement  from "../../assets/TeacherManagement.png";
 
 const features = [
     {
