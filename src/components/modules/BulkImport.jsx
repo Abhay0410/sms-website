@@ -232,7 +232,7 @@ const benefits = [
     desc: "Track import history and rollback incorrect uploads whenever necessary.",
   },
 ];
-export default function AcademicStructure() {
+export default function BulkImportModule() {
   const [activeFeature, setActiveFeature] = useState(null);
 
   return (
@@ -242,8 +242,8 @@ export default function AcademicStructure() {
       <section className="w-full bg-white border-b border-slate-100">
         <img
           src={BulkImport}
-          alt="Academic Management Dashboard"
-          className="w-full h-auto block"
+          alt="Bulk Import Dashboard"
+          className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[660px] object-cover object-top block"
         />
       </section>
 

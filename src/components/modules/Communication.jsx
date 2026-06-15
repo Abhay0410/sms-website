@@ -163,7 +163,7 @@ const benefits = [
   },
 ];
 
-export default function AcademicStructure() {
+export default function CommunicationModule() {
   const [activeFeature, setActiveFeature] = useState(null);
 
   return (
@@ -173,8 +173,8 @@ export default function AcademicStructure() {
       <section className="w-full bg-white border-b border-slate-100">
         <img
           src={Communication}
-          alt="Academic Management Dashboard"
-          className="w-full h-auto block"
+          alt="Communication Dashboard"
+          className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[660px] object-cover object-top block"
         />
       </section>
 
