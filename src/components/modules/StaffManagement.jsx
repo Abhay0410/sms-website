@@ -1,4 +1,4 @@
-import StaffManagement from "../../assets/staff management.png";
+import StaffManagement from "../../assets/eduzagerstaffmanagement.png";
 import { useState } from "react";
 import {
     Clock3,
