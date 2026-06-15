@@ -1,4 +1,4 @@
-import AcademicImg from "../../assets/edzageracdemicmangment.png";
+import FeeManagement from "../../assets/Fee management.png";
 import { useState } from "react";
 import {
   Wallet,
@@ -172,7 +172,7 @@ export default function AcademicStructure() {
       {/* ── HERO ── */}
       <section className="w-full bg-white border-b border-slate-100">
         <img
-          src={AcademicImg}
+          src={FeeManagement}
           alt="Academic Management Dashboard"
           className="w-full h-auto block"
         />

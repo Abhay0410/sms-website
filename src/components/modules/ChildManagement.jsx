@@ -1,4 +1,4 @@
-import AcademicImg from "../../assets/edzageracdemicmangment.png";
+import ChildManagement from "../../assets/child management.png";
 import { useState } from "react";
 import {
   Users,
@@ -244,7 +244,7 @@ export default function AcademicStructure() {
       {/* ── HERO ── */}
       <section className="w-full bg-white border-b border-slate-100">
         <img
-          src={AcademicImg}
+          src={ChildManagement}
           alt="Academic Management Dashboard"
           className="w-full h-auto block"
         />

@@ -1,4 +1,4 @@
-import AcademicImg from "../../assets/edzageracdemicmangment.png";
+import StaffManagement from "../../assets/staff management.png";
 import { useState } from "react";
 import {
     Clock3,
@@ -188,7 +188,7 @@ export default function AcademicStructure() {
       {/* ── HERO ── */}
       <section className="w-full bg-white border-b border-slate-100">
         <img
-          src={AcademicImg}
+          src={StaffManagement}
           alt="Academic Management Dashboard"
           className="w-full h-auto block"
         />

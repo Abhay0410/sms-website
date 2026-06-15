@@ -1,4 +1,4 @@
-import AcademicImg from "../../assets/edzageracdemicmangment.png";
+import Admission from "../../assets/Admission & Enquiry.png";
 import { useState } from "react";
 import {
   ClipboardList,
@@ -175,7 +175,7 @@ export default function AcademicStructure() {
       {/* ── HERO ── */}
       <section className="w-full bg-white border-b border-slate-100">
         <img
-          src={AcademicImg}
+          src={Admission}
           alt="Academic Management Dashboard"
           className="w-full h-auto block"
         />
