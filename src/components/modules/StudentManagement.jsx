@@ -96,7 +96,7 @@ const benefits = [
   },
 ];
 
-export default function StudentManagement() {
+export default function StudentManagementModule() {
   const [activeFeature, setActiveFeature] = useState(null);
 
   return (
@@ -107,7 +107,7 @@ export default function StudentManagement() {
         <img
           src={StudentOverviewImg}
           alt="Student Management Dashboard"
-          className="w-full h-auto block"
+          className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[660px] object-cover object-top block"
         />
       </section>
 

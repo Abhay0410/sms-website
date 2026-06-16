@@ -13,7 +13,6 @@ import {
     Activity,
 } from "lucide-react";
 import AnimatedCounter from "../AnimatedCounter";
-// import teacherManagement  from "../../assets/TeacherManagement.png";
 
 const features = [
     {
@@ -167,7 +166,7 @@ const benefits = [
     },
 ];
 
-export default function AcademicStructure() {
+export default function TeacherManagementModule() {
     const [activeFeature, setActiveFeature] = useState(null);
 
     return (
@@ -178,7 +177,7 @@ export default function AcademicStructure() {
                 <img
                     src={TeacherManagement}
                     alt="Teacher Management Dashboard"
-                    className="w-full h-auto block"
+                    className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[660px] object-cover object-top block"
                 />
             </section>
 
