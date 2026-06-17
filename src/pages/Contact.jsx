@@ -112,11 +112,18 @@ export default function Contact() {
     e.preventDefault();
     setStatus('submitting');
     try {
-      await axios.post(`${API_BASE_URL}/api/public/contact`, formData);
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        subject: `New Inquiry: ${formData.department} from ${formData.institution}`,
+        message: `Institution: ${formData.institution}\nDepartment: ${formData.department}\n\nMessage:\n${formData.message}`
+      };
+
+      await axios.post(`${API_BASE_URL}/api/public/contact`, payload);
       setStatus('success');
       setFormData({ name: '', email: '', institution: '', department: '', message: '' });
       setTimeout(() => setStatus('idle'), 6000);
-    } catch {
+    } catch (error) {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 4000);
     }
