@@ -1,4 +1,4 @@
-import Admission from "../../assets/Admission & Enquiry.png";
+import Admission from "../../assets/EduZagerAdmission&Enquiry.png";
 import { useState } from "react";
 import {
   ClipboardList,
@@ -7,7 +7,7 @@ import {
   FileText,
   Search,
   GraduationCap,
-  
+
   CalendarClock,
 } from "lucide-react";
 import AnimatedCounter from "../AnimatedCounter";
@@ -173,23 +173,22 @@ export default function AcademicStructure() {
     <div className="font-sans text-black bg-white">
 
       {/* ── HERO ── */}
-      <section className="w-full bg-white border-b border-slate-100">
+      <section className="w-full bg-white">
         <img
           src={Admission}
-          alt="Academic Management Dashboard"
-          className="w-full h-auto block"
+          alt="EduZager School Management Platform"
+          className="w-full h-[350px]"
         />
       </section>
 
       {/* ── STATS STRIP ── */}
-      <section className="bg-[#C62828]">
+      <section className="bg-gray-800">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`px-10 py-8 text-white ${
-                i !== stats.length - 1 ? "border-r border-white/20" : ""
-              }`}
+              className={`px-10 py-4 text-white ${i !== stats.length - 1 ? "border-r border-blue/20" : ""
+                }`}
             >
               <div className="text-3xl md:text-4xl font-bold">
                 <AnimatedCounter to={s.to} suffix={s.suffix} />
@@ -208,13 +207,13 @@ export default function AcademicStructure() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
             What Is This Module
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
-           Admission & Enquiry Management streamlines lead tracking, admissions, and student enrollment
+          <h2 className="text-[#111111] text-4xl md:text-[36px] font-bold mb-6 leading-tight uppercase">
+            Admission & Enquiry Management streamlines lead tracking, admissions, and student enrollment
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-         The Admission & Enquiry module helps institutions manage the complete admission lifecycle, 
-         from capturing enquiries and tracking follow-ups to converting leads into enrolled students. With analytics, pipeline tracking, enrollment management, and automated workflows, 
-         schools can improve admission efficiency while maintaining a seamless experience for students and parents.
+            The Admission & Enquiry module helps institutions manage the complete admission lifecycle,
+            from capturing enquiries and tracking follow-ups to converting leads into enrolled students. With analytics, pipeline tracking, enrollment management, and automated workflows,
+            schools can improve admission efficiency while maintaining a seamless experience for students and parents.
           </p>
         </div>
       </section>
@@ -225,8 +224,8 @@ export default function AcademicStructure() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
             Seven Features
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
-          Convert Enquiries into Successful Enrollments.
+          <h2 className="text-3xl md:text-4xl font-bold text-black uppercase">
+            Convert Enquiries into Successful Enrollments.
           </h2>
         </div>
 
@@ -234,21 +233,19 @@ export default function AcademicStructure() {
           {features.map((f) => (
             <div
               key={f.id}
-              className={`group border rounded-2xl p-7 transition-all cursor-pointer ${
-                activeFeature === f.id
+              className={`group border rounded-2xl p-7 transition-all cursor-pointer ${activeFeature === f.id
                   ? "border-[#C62828] bg-red-50"
                   : "border-gray-200 hover:border-gray-300 hover:shadow-sm bg-white"
-              }`}
+                }`}
               onClick={() =>
                 setActiveFeature(activeFeature === f.id ? null : f.id)
               }
             >
               <div
-                className={`w-10 h-10 rounded-xl flex items-center justify-center mb-5 transition-all ${
-                  activeFeature === f.id
+                className={`w-10 h-10 rounded-xl flex items-center justify-center mb-5 transition-all ${activeFeature === f.id
                     ? "bg-[#C62828] text-white"
                     : "bg-gray-100 text-gray-500 group-hover:bg-gray-200"
-                }`}
+                  }`}
               >
                 {f.icon}
               </div>
@@ -271,11 +268,10 @@ export default function AcademicStructure() {
               </div>
 
               <button
-                className={`border px-3 py-1 rounded-full text-xs transition-all ${
-                  activeFeature === f.id
+                className={`border px-3 py-1 rounded-full text-xs transition-all ${activeFeature === f.id
                     ? "border-[#C62828] bg-[#C62828] text-white"
                     : "border-[#C62828] text-[#C62828] hover:bg-[#C62828] hover:text-white"
-                }`}
+                  }`}
               >
                 {activeFeature === f.id ? "Close" : "Read More"}
               </button>
@@ -290,8 +286,8 @@ export default function AcademicStructure() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
             How It Works
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
-           From Lead Tracking to Student Enrollment
+          <h2 className="text-3xl md:text-4xl font-bold text-black uppercase">
+            From Lead Tracking to Student Enrollment
           </h2>
         </div>
 
@@ -317,31 +313,31 @@ export default function AcademicStructure() {
       <section className="px-6 md:px-24 py-16 border-b border-gray-100">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-  <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
-    Why It Matters
-  </p>
+            <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+              Why It Matters
+            </p>
 
-  <h2 className="text-3xl md:text-4xl font-bold text-black mb-5 leading-tight">
-    Turn enquiries into enrollments with a structured admission process.
-  </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-5 leading-tight uppercase">
+              Turn enquiries into enrollments with a structured admission process.
+            </h2>
 
-  <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
-    Managing admission enquiries manually often results in missed follow-ups,
-    lost leads, and inefficient communication with prospective students and
-    parents. Tracking every stage of the admission journey becomes difficult
-    as enquiry volumes increase.
-  </p>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+              Managing admission enquiries manually often results in missed follow-ups,
+              lost leads, and inefficient communication with prospective students and
+              parents. Tracking every stage of the admission journey becomes difficult
+              as enquiry volumes increase.
+            </p>
 
-  <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
-    The Admission & Enquiry module centralizes lead management, follow-ups,
-    admission tracking, and enrollment workflows. From the first enquiry to
-    final class allocation, every step is organized, measurable, and easy to manage.
-  </p>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
+              The Admission & Enquiry module centralizes lead management, follow-ups,
+              admission tracking, and enrollment workflows. From the first enquiry to
+              final class allocation, every step is organized, measurable, and easy to manage.
+            </p>
 
-  <button className="border border-[#C62828] text-[#C62828] px-3 py-1 rounded-full text-xs hover:bg-[#C62828] hover:text-white transition-all">
-    Read Documentation
-  </button>
-</div>
+            <button className="border border-[#C62828] text-[#C62828] px-3 py-1 rounded-full text-xs hover:bg-[#C62828] hover:text-white transition-all">
+              Read Documentation
+            </button>
+          </div>
 
           <div className="flex flex-col gap-4">
             {benefits.map((b) => (
@@ -361,7 +357,7 @@ export default function AcademicStructure() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="px-6 md:px-24 py-20 bg-black">
+      {/* <section className="px-6 md:px-24 py-20 bg-black">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
             Get Started
@@ -382,7 +378,7 @@ export default function AcademicStructure() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );

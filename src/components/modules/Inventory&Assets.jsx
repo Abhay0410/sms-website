@@ -1,4 +1,4 @@
-import InventoryAssets from "../../assets/Inventory & Assets.png";
+import InventoryAssets from "../../assets/EduZagerInventory&Assets.png";
 import { useState } from "react";
 import {
   Package,
@@ -212,22 +212,22 @@ export default function AcademicStructure() {
     <div className="font-sans text-black bg-white">
 
       {/* ── HERO ── */}
-      <section className="w-full bg-white border-b border-slate-100">
-        <img
-          src={InventoryAssets}
-          alt="Academic Management Dashboard"
-          className="w-full h-auto block"
-        />
-      </section>
+     <section className="w-full bg-white">
+                        <img
+                            src={InventoryAssets}
+                            alt="EduZager School Management Platform"
+                            className="w-full h-[350px]"
+                          /> 
+            </section>
 
       {/* ── STATS STRIP ── */}
-      <section className="bg-red-500">
+      <section className="bg-gray-800">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`px-10 py-8 text-white ${
-                i !== stats.length - 1 ? "border-r border-white/20" : ""
+              className={`px-10 py-4 text-white ${
+                i !== stats.length - 1 ? "border-r border-blue/20" : ""
               }`}
             >
               <div className="text-3xl md:text-4xl font-bold">
@@ -247,7 +247,7 @@ export default function AcademicStructure() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
             What Is This Module
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
+          <h2 className="text-[#111111] text-4xl md:text-[36px] font-bold mb-6 leading-tight uppercase">
             Inventory & Assets Management centralizes resource tracking and utilization
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed">
@@ -266,7 +266,7 @@ export default function AcademicStructure() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
             Ten Features
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
+          <h2 className="text-3xl md:text-4xl font-bold text-black uppercase">
            Track Every Asset. Optimize Every Resource.
           </h2>
         </div>
@@ -331,7 +331,7 @@ export default function AcademicStructure() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
             How It Works
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
+          <h2 className="text-3xl md:text-4xl font-bold text-black uppercase">
            From Inventory Control to Asset Allocation & Analytics
           </h2>
         </div>
@@ -362,7 +362,7 @@ export default function AcademicStructure() {
     Why It Matters
   </p>
 
-  <h2 className="text-3xl md:text-4xl font-bold text-black mb-5 leading-tight">
+  <h2 className="text-3xl md:text-4xl font-bold text-black mb-5 leading-tight uppercase">
     Gain complete visibility into inventory, assets, and resource utilization.
   </h2>
 
@@ -402,7 +402,7 @@ export default function AcademicStructure() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="px-6 md:px-24 py-20 bg-black">
+      {/* <section className="px-6 md:px-24 py-20 bg-black">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
             Get Started
@@ -423,7 +423,7 @@ export default function AcademicStructure() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );

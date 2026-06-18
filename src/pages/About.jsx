@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div className="font-sans text-black bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-slate-900 text-white py-24 md:py-32">
+      <section className="relative overflow-hidden bg-slate-900 text-white py-20 md:py-25">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#C62828]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl"></div>
         
@@ -95,7 +95,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-20 bg-[#C62828]">
+      {/* <section className="px-4 sm:px-6 lg:px-8 py-20 bg-[#C62828]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
             Ready to transform your school?
@@ -118,7 +118,7 @@ export default function About() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

@@ -30,10 +30,10 @@ const Testimonials = () => (
       
       {/* Section Header */}
       <div className="text-center mb-16 space-y-3">
-        <span className="text-xs tracking-widest text-[#C62828] font-bold uppercase bg-red-50 px-3 py-1 rounded-md inline-block">
+        <span className="text-xs tracking-widest text-indigo-600 font-bold uppercase bg-indigo-50 px-3 py-1 rounded-md inline-block">
           Case Studies & Reviews
         </span>
-        <h2 className="text-3xl md:text-5xl font-black text-black tracking-tight uppercase">
+        <h2 className="text-3xl md:text-5xl  font-black text-black tracking-tight uppercase">
           Loved by Educators
         </h2>
         <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
@@ -68,14 +68,14 @@ const Testimonials = () => (
             {/* User Meta Meta-Data */}
             <div className="flex items-center gap-4 border-t border-gray-50 pt-6">
               {/* Premium Geometric Placeholder Avatar (Brand color scheme aligned) */}
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-red-50 to-red-100/50 border border-red-100 flex items-center justify-center font-extrabold text-[#C62828] text-sm shrink-0 uppercase">
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-red-50 to-red-100/50 border border-red-100 flex items-center justify-center font-extrabold text-indigo-600 text-sm shrink-0 uppercase">
                 {testimonial.name.split(' ').map(n => n[0]).join('')}
               </div>
               
               <div className="overflow-hidden">
                 <h4 className="font-bold text-gray-900 text-sm tracking-tight truncate">{testimonial.name}</h4>
                 <p className="text-xs text-gray-500 font-medium truncate mt-0.5">
-                  {testimonial.role} <span className="text-gray-300 mx-1">|</span> <span className="text-[#C62828] font-semibold">{testimonial.institution}</span>
+                  {testimonial.role} <span className="text-gray-300 mx-1">|</span> <span className="text-indigo-600 font-semibold">{testimonial.institution}</span>
                 </p>
               </div>
             </div>

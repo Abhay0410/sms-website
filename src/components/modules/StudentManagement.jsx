@@ -1,4 +1,4 @@
-import StudentOverviewImg from "../../assets/eduzagerstudentmagement.png";
+import StudentOverviewImg from "../../assets/EduZagerStudentMM.png";
 import { useState } from "react";
 import {
   UserPlus,
@@ -103,26 +103,24 @@ export default function StudentManagementModule() {
     <div className="font-sans text-black bg-white">
 
       {/* ── HERO ── */}
-      <section className="w-full bg-white border-b border-slate-100">
-        <img
-          src={StudentOverviewImg}
-          alt="Student Management Dashboard"
-          className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[660px] object-cover object-top block"
-        />
-      </section>
+      <section className="w-full bg-white">
+                    <img
+                        src={StudentOverviewImg}
+                        alt="EduZager School Management Platform"
+                        className="w-full h-[350px]"
+                      /> 
+        </section>
+     
 
       {/* ── STATS STRIP ── */}
-      <section className="bg-[#C62828]">
+      <section className="bg-gray-800">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((s, i) => (
             <div
-              key={s.label}
-              className={`px-6 md:px-10 py-6 md:py-8 text-center text-white border-white/20
-                ${(i === 0 || i === 2) ? 'sm:border-r' : ''}
-                ${(i === 0 || i === 1) ? 'border-b md:border-b-0 border-white/20' : ''}
-                ${i === 1 ? 'md:border-r border-white/20' : ''}
-              }`}
-            >
+                            key={s.label}
+                            className={`px-10 py-4 text-white ${i !== stats.length - 1 ? "border-r border-blue/20" : ""
+                                }`}
+                        >
               <div className="text-3xl md:text-4xl font-bold">
                 <AnimatedCounter to={s.to} suffix={s.suffix} />
               </div>
@@ -140,7 +138,7 @@ export default function StudentManagementModule() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
             What Is This Module
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
+          <h2 className="text-[#111111] text-4xl md:text-[36px] font-bold mb-6 leading-tight uppercase">
             The Complete Student Record Hub
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed">
@@ -158,7 +156,7 @@ export default function StudentManagementModule() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
             Six Core Features
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
+          <h2 className="text-3xl md:text-4xl font-bold text-black uppercase">
             Simplify the Student Journey.
           </h2>
         </div>
@@ -223,7 +221,7 @@ export default function StudentManagementModule() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
             How It Works
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
+          <h2 className="text-3xl md:text-4xl font-bold text-black uppercase">
             From Registration to Graduation
           </h2>
         </div>
@@ -253,7 +251,7 @@ export default function StudentManagementModule() {
             <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
               Why It Matters
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-5 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-5 leading-tight uppercase">
               Keep student data secure, accurate, and easily accessible.
             </h2>
             <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
@@ -288,7 +286,7 @@ export default function StudentManagementModule() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="px-6 md:px-24 py-20 bg-black">
+      {/* <section className="px-6 md:px-24 py-20 bg-black">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
             Get Started
@@ -309,7 +307,7 @@ export default function StudentManagementModule() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );

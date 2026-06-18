@@ -4,17 +4,26 @@ import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
 // ── Shared Logo (same as Navbar) ──
 const Logo = () => (
   <Link to="/" className="flex items-center gap-2.5 select-none group">
+    {/* Mark: Isometric Layered Stack / Academic Cap (Represents Modules + Education) */}
     <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 29L3 22L16 15L29 22L16 29Z" fill="#ffffff" fillOpacity="0.08"/>
-      <path d="M16 29L3 22L16 15L29 22L16 29Z" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.15" strokeLinejoin="round"/>
-      <path d="M16 23L3 16L16 9L29 16L16 23Z" fill="#C62828" fillOpacity="0.45"/>
-      <path d="M16 23L3 16L16 9L29 16L16 23Z" stroke="#C62828" strokeWidth="1.5" strokeOpacity="0.65" strokeLinejoin="round"/>
-      <path d="M16 17L3 10L16 3L29 10L16 17Z" fill="#C62828"/>
-      <path d="M16 17L3 10L16 3L29 10L16 17Z" stroke="#C62828" strokeWidth="1.5" strokeLinejoin="round"/>
-      <path d="M29 10V17" stroke="#C62828" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Bottom Layer (Shadow/Data) */}
+      <path d="M16 29L3 22L16 15L29 22L16 29Z" fill="#111111" fillOpacity="0.15"/>
+      <path d="M16 29L3 22L16 15L29 22L16 29Z" stroke="#111111" strokeWidth="1.5" strokeOpacity="0.2" strokeLinejoin="round"/>
+      
+      {/* Middle Layer (Module/Application) */}
+      <path d="M16 23L3 16L16 9L29 16L16 23Z" fill="#4F46E5" fillOpacity="0.4"/>
+      <path d="M16 23L3 16L16 9L29 16L16 23Z" stroke="#4F46E5" strokeWidth="1.5" strokeOpacity="0.6" strokeLinejoin="round"/>
+      
+      {/* Top Layer (Cap/Academics) */}
+      <path d="M16 17L3 10L16 3L29 10L16 17Z" fill="#4F46E5"/>
+      <path d="M16 17L3 10L16 3L29 10L16 17Z" stroke="#4F46E5" strokeWidth="1.5" strokeLinejoin="round"/>
+      
+      {/* Tassel line dropping from right edge */}
+      <path d="M29 10V17" stroke="#4F46E5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
+
     <span className="text-[22px] leading-none tracking-tight font-black text-white group-hover:opacity-90 transition-opacity">
-      Edu<span className="text-[#C62828]">Zager</span>
+      Edu<span className="text-[#4F46E5]">Zager</span>
     </span>
   </Link>
 );
@@ -57,7 +66,7 @@ const company = [
 
 const FooterCol = ({ heading, links }) => (
   <div>
-    <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-5">
+    <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-5">
       {heading}
     </p>
     <ul className="flex flex-col gap-3">
@@ -77,10 +86,10 @@ const FooterCol = ({ heading, links }) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0A0A] border-t border-white/[0.06]">
+    <footer className=" bg-[#051224] border-t border-white/[0.06]">
 
       {/* ── TOP CTA BAND ── */}
-      <div className="border-b border-white/[0.06]">
+      {/* <div className="border-b border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-2">
@@ -108,14 +117,14 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* ── MAIN FOOTER GRID ── */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-14 grid grid-cols-1 md:grid-cols-12 gap-12">
 
         {/* Brand col */}
         <div className="md:col-span-4">
-          <Logo />
+          <Logo  className="text-indigo-600"/>
           <p className="text-sm text-gray-400 leading-relaxed mt-5 max-w-xs">
             The complete ERP for educational institutions — academics, administration, finance, and communication in one platform.
           </p>
@@ -123,15 +132,15 @@ export default function Footer() {
           {/* Contact details */}
           <div className="mt-6 flex flex-col gap-3">
             <a href="mailto:hello@eduzager.com" className="flex items-center gap-2.5 text-sm text-gray-400 hover:text-white transition-colors">
-              <Mail size={14} className="text-[#C62828] flex-shrink-0" />
+              <Mail size={14} className="text-indigo-600 flex-shrink-0" />
               hello@eduzager.com
             </a>
             <a href="tel:+911234567890" className="flex items-center gap-2.5 text-sm text-gray-400 hover:text-white transition-colors">
-              <Phone size={14} className="text-[#C62828] flex-shrink-0" />
+              <Phone size={14} className="text-indigo-600 flex-shrink-0" />
               +91 12345 67890
             </a>
             <span className="flex items-center gap-2.5 text-sm text-gray-400">
-              <MapPin size={14} className="text-[#C62828] flex-shrink-0" />
+              <MapPin size={14} className="text-indigo-600 flex-shrink-0" />
               Durg, Chhattisgarh, India
             </span>
           </div>
@@ -139,7 +148,7 @@ export default function Footer() {
 
         {/* Modules — 2 col sub-grid */}
         <div className="md:col-span-4">
-          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-5">
+          <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-5">
             Modules
           </p>
           <div className="grid grid-cols-2 gap-x-4 gap-y-3">

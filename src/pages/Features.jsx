@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedCounter from "../components/AnimatedCounter";
-import HeroImg from "../assets/eduzager_features_hero.png";
+import HeroImg from "../assets/EduZagerAllFeatures.png";
 
 const pillars = [
   {
@@ -201,25 +201,25 @@ export default function Features() {
           <img
             src={HeroImg}
             alt="EduZager Dashboard"
-            className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[660px] object-cover object-top block"
+            className="w-full h-[400px] "
           />
         </div>
 
         {/* Stats Bar */}
-        <div className="bg-[#C62828] w-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#183A73] w-full ">
+          <div className="max-w-7xl  px-4  sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-3 text-white divide-y sm:divide-y-0 sm:divide-x divide-white/20">
-              <div className="px-4 py-8 text-center border-b sm:border-b-0 sm:border-r border-white/20">
+              <div className="px-4 py-5 text-center border-b sm:border-b-0 sm:border-r border-white/20">
                 <div className="text-3xl md:text-4xl font-bold">
                   <AnimatedCounter to={15} suffix="+" /> Modules
                 </div>
               </div>
-              <div className="px-4 py-8 text-center border-b sm:border-b-0 sm:border-r border-white/20">
+              <div className="px-4 py-5 text-center border-b sm:border-b-0 sm:border-r border-white/20">
                 <div className="text-3xl md:text-4xl font-bold">
                   <AnimatedCounter to={1} /> Platform
                 </div>
               </div>
-              <div className="px-4 py-8 text-center">
+              <div className="px-4 py-5 text-center">
                 <div className="text-3xl md:text-4xl font-bold">
                   <AnimatedCounter to={0} /> Switching Costs
                 </div>
@@ -237,7 +237,7 @@ export default function Features() {
               <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
                 {pillar.name}
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight uppercase">
                 {pillar.description}
               </h2>
             </div>
@@ -256,7 +256,7 @@ export default function Features() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">The EduZager Difference</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
+              <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5 uppercase">
                 Everything connects, so you never enter data twice.
               </h2>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed">
@@ -297,7 +297,7 @@ export default function Features() {
       <section id="comparison-table" className="px-4 sm:px-6 lg:px-8 py-20 border-b border-gray-100 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight uppercase">
               From Manual Chaos to Automated Control
             </h2>
           </div>
@@ -332,7 +332,7 @@ export default function Features() {
       <section id="role-benefits" className="px-4 sm:px-6 lg:px-8 py-20 border-b border-gray-100 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight uppercase">
               A Unified Platform for Every Role
             </h2>
           </div>
@@ -367,7 +367,7 @@ export default function Features() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-20 bg-black">
+      {/* <section className="px-4 sm:px-6 lg:px-8 py-20 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
@@ -392,7 +392,7 @@ export default function Features() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
