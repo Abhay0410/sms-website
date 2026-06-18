@@ -52,6 +52,29 @@ const searchData = [
 
 // ── Logo mark — SVG inline, no external deps ──
 const Logo = () => (
+  // <Link to="/" className="flex items-center gap-2.5 select-none group">
+  //   {/* Mark: Isometric Layered Stack / Academic Cap (Represents Modules + Education) */}
+  //   <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  //     {/* Bottom Layer (Shadow/Data) */}
+  //     <path d="M16 29L3 22L16 15L29 22L16 29Z" fill="#111111" fillOpacity="0.15"/>
+  //     <path d="M16 29L3 22L16 15L29 22L16 29Z" stroke="#111111" strokeWidth="1.5" strokeOpacity="0.2" strokeLinejoin="round"/>
+      
+  //     {/* Middle Layer (Module/Application) */}
+  //     <path d="M16 23L3 16L16 9L29 16L16 23Z" fill="#C62828" fillOpacity="0.4"/>
+  //     <path d="M16 23L3 16L16 9L29 16L16 23Z" stroke="#C62828" strokeWidth="1.5" strokeOpacity="0.6" strokeLinejoin="round"/>
+      
+  //     {/* Top Layer (Cap/Academics) */}
+  //     <path d="M16 17L3 10L16 3L29 10L16 17Z" fill="#C62828"/>
+  //     <path d="M16 17L3 10L16 3L29 10L16 17Z" stroke="#C62828" strokeWidth="1.5" strokeLinejoin="round"/>
+      
+  //     {/* Tassel line dropping from right edge */}
+  //     <path d="M29 10V17" stroke="#C62828" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  //   </svg>
+
+  //   <span className="text-[22px] leading-none tracking-tight font-black text-slate-900 group-hover:opacity-90 transition-opacity">
+  //     Edu<span className="text-indigo-600">Zager</span>
+  //   </span>
+  // </Link>
   <Link to="/" className="flex items-center gap-2.5 select-none group">
     {/* Mark: Isometric Layered Stack / Academic Cap (Represents Modules + Education) */}
     <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,19 +83,19 @@ const Logo = () => (
       <path d="M16 29L3 22L16 15L29 22L16 29Z" stroke="#111111" strokeWidth="1.5" strokeOpacity="0.2" strokeLinejoin="round"/>
       
       {/* Middle Layer (Module/Application) */}
-      <path d="M16 23L3 16L16 9L29 16L16 23Z" fill="#C62828" fillOpacity="0.4"/>
-      <path d="M16 23L3 16L16 9L29 16L16 23Z" stroke="#C62828" strokeWidth="1.5" strokeOpacity="0.6" strokeLinejoin="round"/>
+      <path d="M16 23L3 16L16 9L29 16L16 23Z" fill="#4F46E5" fillOpacity="0.4"/>
+      <path d="M16 23L3 16L16 9L29 16L16 23Z" stroke="#4F46E5" strokeWidth="1.5" strokeOpacity="0.6" strokeLinejoin="round"/>
       
       {/* Top Layer (Cap/Academics) */}
-      <path d="M16 17L3 10L16 3L29 10L16 17Z" fill="#C62828"/>
-      <path d="M16 17L3 10L16 3L29 10L16 17Z" stroke="#C62828" strokeWidth="1.5" strokeLinejoin="round"/>
+      <path d="M16 17L3 10L16 3L29 10L16 17Z" fill="#4F46E5"/>
+      <path d="M16 17L3 10L16 3L29 10L16 17Z" stroke="#4F46E5" strokeWidth="1.5" strokeLinejoin="round"/>
       
       {/* Tassel line dropping from right edge */}
-      <path d="M29 10V17" stroke="#C62828" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M29 10V17" stroke="#4F46E5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 
     <span className="text-[22px] leading-none tracking-tight font-black text-slate-900 group-hover:opacity-90 transition-opacity">
-      Edu<span className="text-[#C62828]">Zager</span>
+      Edu<span className="text-[#4F46E5]">Zager</span>
     </span>
   </Link>
 );
@@ -206,7 +229,7 @@ export default function Navbar() {
                 className={`
                   flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all
                   ${megaOpen
-                    ? "text-[#C62828] bg-red-50"
+                    ? "text-indigo-600 bg-red-50"
                     : "text-gray-700 hover:text-black hover:bg-gray-50"}
                 `}
               >
@@ -224,7 +247,7 @@ export default function Navbar() {
                   {/* header strip */}
                   <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
                     <div>
-                      <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase">
+                      <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase">
                         All Modules
                       </p>
                       <p className="text-sm font-bold text-black mt-0.5">
@@ -251,7 +274,7 @@ export default function Navbar() {
                   {/* footer strip */}
                   <div className="px-6 py-3 bg-gray-50 border-t border-gray-100 flex items-center gap-2">
                     <span className="text-xs text-gray-400">Need a custom module?</span>
-                    <Link to="/contact" onClick={() => handleNavigation('/contact')} className="text-xs text-[#C62828] font-semibold hover:underline">
+                    <Link to="/contact" onClick={() => handleNavigation('/contact')} className="text-xs text-indigo-600 font-semibold hover:underline">
                       Talk to us →
                     </Link>
                   </div>
@@ -312,10 +335,10 @@ export default function Navbar() {
               to="/register"
               className="
                 flex items-center gap-1.5
-                bg-[#C62828] text-white
+                bg-indigo-600 text-white
                 px-4 py-2 rounded-full
                 text-sm font-semibold
-                hover:bg-[#a81f1f]
+                hover:bg-indigo-500
                 transition-all
                 shadow-sm
               "

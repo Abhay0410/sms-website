@@ -1,6 +1,6 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
-import EduzagerAllModulesImg from "../../assets/eduzageralmodules.png";
+import EduzagerAllModulesImg from "../../assets/EduZagerAllModules.png";
 import {
   Bus,
   Library,
@@ -395,7 +395,7 @@ const AllModules = () => {
         <img
           src={EduzagerAllModulesImg}
           alt="EduZager Modules Overview"
-          className="w-full h-auto block"
+          className="w-full h-[450px] block"
         />
       </div>
 
@@ -404,7 +404,7 @@ const AllModules = () => {
         <span className="text-[#D32F2F] uppercase tracking-[0.2em] font-semibold text-sm mb-4">
           Our Products & Services
         </span>
-        <h1 className="text-[#111111] text-4xl md:text-[36px] font-bold mb-6 leading-tight">
+        <h1 className="text-[#111111] text-4xl md:text-[36px] font-bold mb-6 leading-tight uppercase">
           School ERP Management Software
         </h1>
         <p className="text-[#444444] text-[15px] md:text-base w-full md:w-[75%] leading-[1.6]">

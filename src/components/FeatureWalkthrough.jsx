@@ -14,6 +14,16 @@ import {
 
 // ─── Replace these with your real screenshots / video thumbnails ───────────────
 import adminImg from '../../src/assets/adminDashboardImg.png';
+import userRegistration from '../../src/assets/User Registration.png';
+import bulkImport from '../../src/assets/BulkImport.png';
+import academicManagement from '../../src/assets/academicManagement.png';
+import feeManagement from '../../src/assets/FeeManage.png';
+import resultManagement from '../../src/assets/ResultManage.png';
+import staffHR from '../../src/assets/StaffHR.png';
+import payroll from '../../src/assets/Payroll&Salary.png';
+import library from '../../src/assets/Library.png';
+import transport from '../../src/assets/Transport.png';
+import Enquiry from '../../src/assets/Enquiry&Assets.png';
 // If you have separate images per section, import them here too.
 // Otherwise the same image is reused (swap per section below).
 
@@ -22,45 +32,137 @@ const PROGRESS_INTERVAL = 40;
 
 const profiles = [
   {
-    id: 'admin',
-    title: 'Admin Portal',
-    icon: FaUserShield,
-    badge: 'SuperAdmin',
-    headerText: 'eduzager.erp — Admin Portal',
-    avatarChar: 'A',
-    accentColor: '#5346D6',
-    accentLight: '#EDE9FD',
-    steps: [
-      {
-        navLabel: 'User Registration',
-        stat: { label: 'Active Students', value: '2,845' },
-        heading: 'Register students & staff in seconds',
-        body: 'Bulk-import via CSV or enrol individually. Automatic role assignment and credential dispatch on save.',
-        img: adminImg,
-      },
-      {
-        navLabel: 'Fee Management',
-        stat: { label: 'Monthly Revenue', value: '₹4,52,000' },
-        heading: 'Automated fee collection & receipts',
-        body: 'Configurable fee structures, due-date reminders, and one-click digital receipts — zero manual follow-up.',
-        img: adminImg,
-      },
-      {
-        navLabel: 'Payroll & Salary',
-        stat: { label: 'Staff Count', value: '142' },
-        heading: 'Payroll processed in one click',
-        body: 'Auto-compute salaries, deductions, and PF. Generate payslips and push disbursements directly.',
-        img: adminImg,
-      },
-      {
-        navLabel: 'Academic Management',
-        stat: { label: 'Classes Active', value: '38' },
-        heading: 'End-to-end academic calendar control',
-        body: 'Set academic year, assign class teachers, schedule exams, and publish results — all from one screen.',
-        img: adminImg,
-      },
-    ],
-  },
+  id: 'admin',
+  title: 'Admin Portal',
+  icon: FaUserShield,
+  badge: 'SuperAdmin',
+  headerText: 'eduzager.erp — Admin Portal',
+  avatarChar: 'A',
+  accentColor: '#5346D6',
+  accentLight: '#EDE9FD',
+
+  steps: [
+    {
+      navLabel: 'Dashboard',
+      stat: { label: 'System Status', value: 'Live' },
+      heading: 'Complete overview of your institution',
+      body: 'Real-time analytics of students, fees, staff, attendance, and performance all in one dashboard.',
+      img: adminImg,
+    },
+
+    {
+      navLabel: 'User Registration',
+      stat: { label: 'Active Students', value: '2,845' },
+      heading: 'Register students & staff in seconds',
+      body: 'Bulk-import via CSV or enrol individually. Automatic role assignment and credential dispatch on save.',
+      img: userRegistration,
+    },
+
+    {
+      navLabel: 'Bulk Import',
+      stat: { label: 'Imports Done', value: '1,120' },
+      heading: 'Fast bulk data upload system',
+      body: 'Upload students, staff, and records using Excel/CSV with validation and error reporting.',
+      img: bulkImport,
+    },
+
+    {
+      navLabel: 'Academic Management',
+      stat: { label: 'Classes Active', value: '38' },
+      heading: 'End-to-end academic control',
+      body: 'Manage classes, subjects, timetable, exams, syllabus tracking, and results publishing.',
+      img: academicManagement,
+    },
+
+    {
+      navLabel: 'Fee Management',
+      stat: { label: 'Monthly Revenue', value: '₹4,52,000' },
+      heading: 'Automated fee collection & receipts',
+      body: 'Configure fee structures, generate invoices, track payments, and send automated reminders.',
+      img: feeManagement,
+    },
+
+    {
+      navLabel: 'Inventory & Assets',
+      stat: { label: 'Items Registered', value: '3,210' },
+      heading: 'Track all institutional assets',
+      body: 'Manage furniture, lab equipment, devices, and consumables with stock tracking and maintenance logs.',
+      img: adminImg,
+    },
+
+    {
+      navLabel: 'Financial Ledger',
+      stat: { label: 'Transactions', value: '9,540' },
+      heading: 'Complete financial transparency',
+      body: 'Record income, expenses, audits, and generate financial reports for accounting clarity.',
+      img: adminImg,
+    },
+
+    {
+      navLabel: 'Result Management',
+      stat: { label: 'Exams Published', value: '120' },
+      heading: 'Manage student results efficiently',
+      body: 'Create exams, enter marks, auto-calculate grades, and publish results online.',
+      img: resultManagement,
+    },
+
+    {
+      navLabel: 'Staff HR',
+      stat: { label: 'Employees', value: '142' },
+      heading: 'Complete HR management system',
+      body: 'Manage staff profiles, attendance, leaves, roles, and performance tracking.',
+      img: staffHR,
+    },
+
+    {
+      navLabel: 'Payroll & Salary',
+      stat: { label: 'Monthly Payroll', value: '₹18,40,000' },
+      heading: 'Automated payroll processing',
+      body: 'Calculate salaries, deductions, PF, and generate payslips with one click.',
+      img: payroll,
+    },
+
+    {
+      navLabel: 'Library',
+      stat: { label: 'Books Available', value: '12,500' },
+      heading: 'Digital library management',
+      body: 'Track books, issue/return records, late fees, and student library usage.',
+      img: library,
+    },
+
+    {
+      navLabel: 'Transport',
+      stat: { label: 'Vehicles', value: '24' },
+      heading: 'Manage school transport system',
+      body: 'Track routes, bus allocation, driver details, and student transport assignments.',
+      img: transport,
+    },
+
+    {
+      navLabel: 'Admission & Enquiry',
+      stat: { label: 'New Leads', value: '340' },
+      heading: 'Streamline admissions process',
+      body: 'Handle enquiries, applications, approvals, and admission workflows digitally.',
+      img: Enquiry,
+    },
+
+    {
+      navLabel: 'Communication',
+      stat: { label: 'Messages Sent', value: '25K' },
+      heading: 'Central communication system',
+      body: 'Send notices, SMS, emails, and alerts to students, parents, and staff instantly.',
+      img: adminImg,
+    },
+
+    {
+      navLabel: 'Edit Profile',
+      stat: { label: 'Profile Status', value: 'Updated' },
+      heading: 'Manage admin profile settings',
+      body: 'Update personal details, security settings, password, and system preferences.',
+      img: adminImg,
+    },
+  ],
+},
   {
     id: 'teacher',
     title: 'Teacher Hub',
@@ -212,10 +314,10 @@ export default function FeatureWalkthrough() {
   }, [activeProfile]);
 
   return (
-    <section className="py-16 px-6 max-w-[85rem] w-full mx-auto font-sans antialiased">
+    <section className=" py-16 px-6 max-w-[85rem] w-full mx-auto  antialiased overflow-x-hidden">
       {/* Headline */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+        <h2 className="text-3xl md:text-5xl font-black text-black tracking-tight uppercase ">
           One platform.{' '}
           <span
             className="bg-clip-text text-transparent"
@@ -224,13 +326,13 @@ export default function FeatureWalkthrough() {
             Every user role.
           </span>
         </h2>
-        <p className="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">
+        <p className="text-slate-500 mt-1.5 font-sans text-lg max-w-xl mx-auto leading-relaxed">
           A unified ecosystem built for every stakeholder — from administration to parents.
         </p>
       </div>
 
       {/* Outer frame */}
-      <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-[0_20px_60px_-10px_rgba(0,0,0,0.08)] bg-white flex flex-col">
+      <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-[0_20px_60px_-10px_rgba(0,0,0,0.08)] bg-white flex flex-col h-full w-full">
 
         {/* Window chrome */}
         <div className="bg-slate-50 border-b border-slate-200 px-5 py-3 flex items-center justify-between select-none">
@@ -266,10 +368,10 @@ export default function FeatureWalkthrough() {
         </div>
 
         {/* Body */}
-        <div className="flex flex-col lg:flex-row">
+        <div className="flex flex-col lg:flex-row flex-1 min-h-0">
 
           {/* ── LEFT: Persona tabs with their nav items inline ── */}
-          <div className="w-full lg:w-80 bg-white border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col overflow-y-auto shrink-0">
+         <div className="w-full lg:w-80 shrink-0 bg-white border-r border-slate-100 flex flex-col h-full overflow-y-auto">
             {profiles.map((p, pi) => {
               const Icon = p.icon;
               const isActiveProfile = pi === activeProfile;
@@ -367,7 +469,7 @@ export default function FeatureWalkthrough() {
           </div>
 
           {/* ── RIGHT: Content area ── */}
-          <div className="flex-1 bg-slate-50/40 flex flex-col min-w-0">
+          <div className="flex-1 min-w-0 w-full bg-slate-50/40 flex flex-col">
             <AnimatePresence mode="popLayout">
               <motion.div
                 key={`${activeProfile}-${activeStep}`}
@@ -412,7 +514,7 @@ export default function FeatureWalkthrough() {
                   <img
                     src={step.img}
                     alt={step.navLabel}
-                    className="w-full h-full object-contain absolute inset-0" // Changed to object-contain for full visibility
+                    className="w-full h-full object-contain absolute " // Changed to object-contain for full visibility
                   />
 
                   {/* Bottom overlay */}

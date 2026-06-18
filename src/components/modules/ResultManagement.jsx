@@ -1,4 +1,4 @@
-import ResultManagement from "../../assets/Result management.png";
+import ResultManagement from "../../assets/EduZagerResultMM.png";
 import { useState } from "react";
 import {
   ClipboardList,
@@ -170,23 +170,22 @@ export default function ResultManagementModule() {
     <div className="font-sans text-black bg-white">
 
       {/* ── HERO ── */}
-      <section className="w-full bg-white border-b border-slate-100">
-        <img
-          src={ResultManagement}
-          alt="Result Management Dashboard"
-          className="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[660px] object-cover object-top block"
-        />
-      </section>
+      <section className="w-full bg-white">
+             <img
+               src={ResultManagement}
+               alt="EduZager School Management Platform"
+               className="w-full h-[350px]"
+             />
+           </section>
 
       {/* ── STATS STRIP ── */}
-      <section className="bg-[#C62828]">
+      <section className="bg-gray-800">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`px-10 py-8 text-white ${
-                i !== stats.length - 1 ? "border-r border-white/20" : ""
-              }`}
+              className={`px-10 py-4 text-white ${i !== stats.length - 1 ? "border-r border-blue/20" : ""
+                }`}
             >
               <div className="text-3xl md:text-4xl font-bold">
                 <AnimatedCounter to={s.to} suffix={s.suffix} />
@@ -205,7 +204,7 @@ export default function ResultManagementModule() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
             What Is This Module
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
+          <h2 className="text-[#111111] text-4xl md:text-[36px] font-bold mb-6 leading-tight uppercase  ">
             Result Management simplifies examination processing, result approval, and academic performance tracking
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed">
@@ -223,7 +222,7 @@ export default function ResultManagementModule() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
             Seven Features
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
+          <h2 className="text-3xl md:text-4xl font-bold text-black uppercase">
          Accurate Results. Transparent Performance.
           </h2>
         </div>
@@ -288,7 +287,7 @@ export default function ResultManagementModule() {
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
             How It Works
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black">
+          <h2 className="text-3xl md:text-4xl font-bold text-black uppercase">
            Accurate Results. Transparent Performance.
           </h2>
         </div>
@@ -319,7 +318,7 @@ export default function ResultManagementModule() {
     Why It Matters
   </p>
 
-  <h2 className="text-3xl md:text-4xl font-bold text-black mb-5 leading-tight">
+  <h2 className="text-3xl md:text-4xl font-bold text-black mb-5 leading-tight uppercase">
     Simplify result processing, approval, and publication across all examinations.
   </h2>
 
@@ -359,7 +358,7 @@ export default function ResultManagementModule() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="px-6 md:px-24 py-20 bg-black">
+      {/* <section className="px-6 md:px-24 py-20 bg-black">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
             Get Started
@@ -380,7 +379,7 @@ export default function ResultManagementModule() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );
