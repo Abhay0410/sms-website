@@ -23,6 +23,7 @@ const modules = [
 ];
 
 const navLinks = [
+  { label: "Home", path: "/" },
   { label: "Features", path: "/features" },
   { label: "Pricing",  path: "/pricing"  },
   { label: "About",    path: "/about"    },
@@ -217,6 +218,8 @@ export default function Navbar() {
           {/* ── CENTER: Nav links (desktop) ── */}
           <div className="hidden lg:flex items-center gap-1">
 
+            
+
             {/* Modules mega trigger */}
             <div 
               ref={megaRef} 
@@ -236,7 +239,7 @@ export default function Navbar() {
                 Modules
                 <ChevronDown
                   size={14}
-                  className={`transition-transform duration-200 ${megaOpen ? "rotate-180 text-[#C62828]" : ""}`}
+                  className={`transition-transform duration-200 ${megaOpen ? "rotate-180 text-indigo-600" : ""}`}
                 />
               </Link>
 
@@ -263,7 +266,7 @@ export default function Navbar() {
                         key={mod.path}
                         to={mod.path}
                         onClick={() => handleNavigation(mod.path)}
-                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm text-gray-700 hover:bg-red-50 hover:text-[#C62828] transition-all group"
+                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm text-gray-700 hover:bg-red-50 hover:text-indigo-600 transition-all group"
                       >
                         <span className="text-base leading-none">{mod.icon}</span>
                         <span className="font-medium leading-tight">{mod.label}</span>
@@ -291,7 +294,7 @@ export default function Navbar() {
                 className={`
                   px-3 py-2 rounded-lg text-sm font-medium transition-all
                   ${location.pathname === link.path
-                    ? "text-[#C62828] bg-red-50"
+                    ? "text-indigo-600 bg-red-50"
                     : "text-gray-700 hover:text-black hover:bg-gray-50"}
                 `}
               >
@@ -304,12 +307,12 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-2">
             {/* Search Input with Dropdown */}
             <div ref={searchContainerRef} className="relative">
-              <div className="group flex items-center gap-2 px-3 h-10 mr-2 w-56 rounded-lg bg-slate-100 border border-slate-200 text-slate-500 focus-within:ring-2 focus-within:ring-[#C62828] focus-within:border-transparent transition-all">
+              <div className="group flex items-center gap-2 px-3 h-10 mr-2 w-56 rounded-lg bg-slate-100 border border-slate-200 text-slate-500 focus-within:ring-2 focus-within:ring-indigo-600 focus-within:border-transparent transition-all">
                 <Search size={16} className="text-slate-400 shrink-0" />
                 <input
                   ref={searchInputRef}
                   type="text"
-                  placeholder="Search..."
+                  placeholder="Search Features"
                   className="text-sm w-full bg-transparent outline-none text-slate-800 placeholder-slate-500"
                   value={searchQuery}
                   onChange={(e) => { setSearchQuery(e.target.value); setHighlightedIndex(-1); }}
@@ -393,7 +396,7 @@ export default function Navbar() {
             className="flex items-center justify-between w-full px-3 py-3 mb-2 rounded-xl text-base font-bold text-gray-900 hover:bg-gray-100 transition-all"
           >
             <span>Modules</span>
-            <ChevronDown size={18} className={`transition-transform duration-200 ${mobileModulesOpen ? "rotate-180 text-[#C62828]" : ""}`} />
+            <ChevronDown size={18} className={`transition-transform duration-200 ${mobileModulesOpen ? "rotate-180 text-indigo-600" : ""}`} />
           </button>
 
           <AnimatePresence>
@@ -410,7 +413,7 @@ export default function Navbar() {
                       key={mod.path}
                       to={mod.path}
                       onClick={() => handleNavigation(mod.path)}
-                      className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm text-gray-700 hover:bg-red-50 hover:text-[#C62828] transition-all"
+                      className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm text-gray-700 hover:bg-red-50 hover:text-indigo-600 transition-all"
                     >
                       <span className="text-base leading-none">{mod.icon}</span>
                       <span className="font-medium leading-tight">{mod.label}</span>
@@ -419,7 +422,7 @@ export default function Navbar() {
                   <Link
                     to="/modules"
                     onClick={() => handleNavigation('/modules')}
-                    className="mt-2 flex items-center justify-center gap-2 text-sm font-semibold text-[#C62828] bg-red-50 hover:bg-red-100 rounded-xl py-3 transition-colors col-span-1 sm:col-span-2"
+                    className="mt-2 flex items-center justify-center gap-2 text-sm font-semibold text-indigo-600 bg-red-50 hover:bg-red-100 rounded-xl py-3 transition-colors col-span-1 sm:col-span-2"
                   >
                     View All Modules <ArrowRight size={16} />
                   </Link>
@@ -455,7 +458,7 @@ export default function Navbar() {
           </Link>
           <Link
             to="/register"
-            className="w-full text-center bg-[#C62828] text-white px-4 py-3 rounded-full text-sm font-semibold hover:bg-[#a81f1f] transition-all"
+            className="w-full text-center bg-indigo-600 text-white px-4 py-3 rounded-full text-sm font-semibold hover:bg-[#a81f1f] transition-all"
           >
             Start Free Trial
           </Link>
@@ -515,7 +518,7 @@ const SearchResults = ({ results, onNavigate, highlightedIndex, setHighlightedIn
                 <div className="flex items-center gap-3">
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors shadow-sm
                     ${highlightedIndex === idx 
-                      ? 'bg-white border border-red-100 text-[#C62828]' 
+                      ? 'bg-white border border-red-100 text-indigo-600' 
                       : 'bg-white border border-slate-200 text-slate-500'}`
                   }>
                     <span className="text-sm">{item.icon}</span>

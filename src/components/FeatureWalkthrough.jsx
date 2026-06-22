@@ -320,8 +320,8 @@ export default function FeatureWalkthrough() {
         <h2 className="text-3xl md:text-5xl font-black text-black tracking-tight uppercase ">
           One platform.{' '}
           <span
-            className="bg-clip-text text-transparent"
-            style={{ backgroundImage: `linear-gradient(135deg, ${profiles[activeProfile].accentColor}, #a855f7)` }}
+            
+           
           >
             Every user role.
           </span>

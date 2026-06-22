@@ -147,7 +147,7 @@ export default function Footer() {
         </div>
 
         {/* Modules — 2 col sub-grid */}
-        <div className="md:col-span-4">
+        {/* <div className="md:col-span-4">
           <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-5">
             Modules
           </p>
@@ -162,7 +162,24 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-        </div>
+        </div> */}
+        <div className="md:col-span-4">
+  <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-5 text-center">
+    Modules
+  </p>
+
+  <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+    {modules.map((m) => (
+      <Link
+        key={m.path}
+        to={m.path}
+        className="text-sm text-gray-400 hover:text-white transition-colors leading-tight"
+      >
+        {m.label}
+      </Link>
+    ))}
+  </div>
+</div>
 
         {/* Product + Company */}
         <div className="md:col-span-4 grid grid-cols-2 gap-8">

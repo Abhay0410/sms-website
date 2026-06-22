@@ -25,6 +25,8 @@ import FeatureWalkthrough from '../components/FeatureWalkthrough';
 import Testimonials from '../components/Testimonials';
 import HeroImg from '../assets/eduzagerhomehero.png';
 
+import KeyFeatures from '../components/KeyFeature';
+
 const Home = () => (
   <div className="flex flex-col items-center w-full overflow-hidden">
     {/* Full-width Hero Image */}
@@ -36,6 +38,7 @@ const Home = () => (
       /> 
     </section>
     <FeatureWalkthrough />
+    <KeyFeatures/>
     <Testimonials />
   </div>
 );
