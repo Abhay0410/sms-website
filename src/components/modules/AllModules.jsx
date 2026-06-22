@@ -401,7 +401,7 @@ const AllModules = () => {
 
       {/* Header Area */}
       <div className="flex flex-col items-center text-center pt-16 pb-8 px-6 max-w-4xl mx-auto">
-        <span className="text-[#D32F2F] uppercase tracking-[0.2em] font-semibold text-sm mb-4">
+        <span className="text-indigo-600 uppercase tracking-[0.2em] font-semibold text-sm mb-4">
           Our Products & Services
         </span>
         <h1 className="text-[#111111] text-4xl md:text-[36px] font-bold mb-6 leading-tight uppercase">
@@ -445,7 +445,7 @@ const AllModules = () => {
                 {linkTo ? (
                   <Link
                     to={linkTo}
-                    className="inline-flex items-center gap-2 text-[#D32F2F] border border-[#D32F2F] rounded-full px-5 py-2 text-sm font-medium hover:bg-[#D32F2F] hover:text-[#FFFFFF] transition-colors duration-300"
+                    className="inline-flex items-center gap-2 text-indigo-600 border border-indigo-600 rounded-full px-5 py-2 text-sm font-medium hover:bg-indigo-600 hover:text-[#FFFFFF] transition-colors duration-300"
                   >
                     Read more <ArrowRight size={16} />
                   </Link>

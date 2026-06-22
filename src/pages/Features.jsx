@@ -176,15 +176,15 @@ const securityFeatures = [
 ];
 
 const ModuleCard = ({ icon, title, desc, path }) => (
-  <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col group hover:border-[#C62828] hover:shadow-lg transition-all duration-300">
-    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gray-100 text-gray-600 mb-5 group-hover:bg-red-50 group-hover:text-[#C62828] transition-all">
+  <div className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col group hover:border-indigo-600 hover:shadow-lg transition-all duration-300">
+    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gray-100 text-gray-600 mb-5 group-hover:bg-red-50 group-hover:text-indigo-600 transition-all">
       {icon}
     </div>
     <h3 className="text-base font-bold text-black mb-2">{title}</h3>
     <p className="text-gray-600 text-sm leading-relaxed flex-grow mb-6">{desc}</p>
     <Link
       to={path}
-      className="inline-flex items-center gap-1 text-xs font-semibold text-[#C62828] border border-[#C62828] rounded-full px-3 py-1 self-start hover:bg-[#C62828] hover:text-white transition-colors"
+      className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 border border-indigo-600 rounded-full px-3 py-1 self-start hover:bg-indigo-600 hover:text-white transition-colors"
     >
       Read More <ArrowRight size={12} />
     </Link>
@@ -206,7 +206,7 @@ export default function Features() {
         </div>
 
         {/* Stats Bar */}
-        <div className="bg-[#183A73] w-full ">
+        <div className="bg-[#001A48] w-full ">
           <div className="max-w-7xl  px-4  sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-3 text-white divide-y sm:divide-y-0 sm:divide-x divide-white/20">
               <div className="px-4 py-5 text-center border-b sm:border-b-0 sm:border-r border-white/20">
@@ -234,7 +234,7 @@ export default function Features() {
         <section key={pillar.name} className={`px-4 sm:px-6 lg:px-8 py-16 ${idx !== pillars.length - 1 ? 'border-b border-gray-100' : ''}`}>
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl mb-12">
-              <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+              <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-4">
                 {pillar.name}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight uppercase">
@@ -255,7 +255,7 @@ export default function Features() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">The EduZager Difference</p>
+              <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-4">The EduZager Difference</p>
               <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mb-5 uppercase">
                 Everything connects, so you never enter data twice.
               </h2>
@@ -265,7 +265,7 @@ export default function Features() {
             </div>
             <div className="space-y-4">
               <div className="flex items-center gap-4 p-4 bg-white border border-gray-200 rounded-xl">
-                <div className="w-10 h-10 flex items-center justify-center bg-red-50 text-[#C62828] rounded-lg flex-shrink-0">
+                <div className="w-10 h-10 flex items-center justify-center bg-red-50 text-indigo-600 rounded-lg flex-shrink-0">
                   <UserPlus size={20}/>
                 </div>
                 <p className="text-sm font-semibold text-gray-700">When you <span className="text-black">enroll a student</span>...</p>
@@ -274,7 +274,7 @@ export default function Features() {
                 <Shuffle size={20} className="text-gray-300"/>
               </div>
               <div className="flex items-center gap-4 p-4 bg-white border border-gray-200 rounded-xl">
-                <div className="w-10 h-10 flex items-center justify-center bg-red-50 text-[#C62828] rounded-lg flex-shrink-0">
+                <div className="w-10 h-10 flex items-center justify-center bg-red-50 text-indigo-600 rounded-lg flex-shrink-0">
                   <Banknote size={20}/>
                 </div>
                 <p className="text-sm font-semibold text-gray-700">...<span className="text-black">Fee Management</span> auto-generates their first invoice.</p>
@@ -283,7 +283,7 @@ export default function Features() {
                 <Shuffle size={20} className="text-gray-300"/>
               </div>
               <div className="flex items-center gap-4 p-4 bg-white border border-gray-200 rounded-xl">
-                <div className="w-10 h-10 flex items-center justify-center bg-red-50 text-[#C62828] rounded-lg flex-shrink-0">
+                <div className="w-10 h-10 flex items-center justify-center bg-red-50 text-indigo-600 rounded-lg flex-shrink-0">
                   <MessageSquare size={20}/>
                 </div>
                 <p className="text-sm font-semibold text-gray-700">...<span className="text-black">Communication Hub</span> sends them a welcome SMS.</p>
@@ -339,7 +339,7 @@ export default function Features() {
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             {roleBenefits.map(item => (
               <div key={item.role} className="flex items-start gap-5 p-6 bg-gray-50 border border-gray-200 rounded-2xl">
-                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-red-100 text-[#C62828] rounded-lg">
+                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-red-100 text-indigo-600 rounded-lg">
                   {item.icon}
                 </div>
                 <div>
@@ -370,7 +370,7 @@ export default function Features() {
       {/* <section className="px-4 sm:px-6 lg:px-8 py-20 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mx-auto text-center">
-            <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+            <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-4">
               See It Live
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
@@ -380,7 +380,7 @@ export default function Features() {
               Schedule a personalized demo and discover how EduZager can transform your institution's operations. No commitment, no pressure.
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
-              <button className="bg-[#C62828] text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-[#a81f1f] transition-all">
+              <button className="bg-indigo-600 text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-[#a81f1f] transition-all">
                 Book a Demo
               </button>
               <Link

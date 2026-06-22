@@ -16,7 +16,7 @@ const FloatingInput = ({ label, name, type = 'text', value, onChange, required, 
       onChange={onChange}
       placeholder=" "
       className="peer w-full px-4 pt-6 pb-2 rounded-xl border border-slate-200 bg-white/80
-        focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 focus:border-[#C62828]
+        focus:outline-none focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600
         transition-all text-slate-800 text-sm font-medium"
     />
     <label
@@ -25,7 +25,7 @@ const FloatingInput = ({ label, name, type = 'text', value, onChange, required, 
         text-slate-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
         peer-placeholder-shown:font-normal peer-placeholder-shown:tracking-normal
         peer-placeholder-shown:text-slate-400 peer-focus:top-2 peer-focus:text-[11px]
-        peer-focus:tracking-widest peer-focus:font-bold peer-focus:text-[#C62828]
+        peer-focus:tracking-widest peer-focus:font-bold peer-focus:text-indigo-600
         transition-all pointer-events-none"
     >
       {label}
@@ -45,7 +45,7 @@ const FloatingTextarea = ({ label, name, value, onChange, required, rows = 5 }) 
       rows={rows}
       placeholder=" "
       className="peer w-full px-4 pt-6 pb-2 rounded-xl border border-slate-200 bg-white/80
-        focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 focus:border-[#C62828]
+        focus:outline-none focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600
         transition-all text-slate-800 text-sm font-medium resize-none"
     />
     <label
@@ -54,7 +54,7 @@ const FloatingTextarea = ({ label, name, value, onChange, required, rows = 5 }) 
         text-slate-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm
         peer-placeholder-shown:font-normal peer-placeholder-shown:tracking-normal
         peer-placeholder-shown:text-slate-400 peer-focus:top-2 peer-focus:text-[11px]
-        peer-focus:tracking-widest peer-focus:font-bold peer-focus:text-[#C62828]
+        peer-focus:tracking-widest peer-focus:font-bold peer-focus:text-indigo-600
         transition-all pointer-events-none"
     >
       {label}
@@ -65,7 +65,7 @@ const FloatingTextarea = ({ label, name, value, onChange, required, rows = 5 }) 
 // --- Info Card ---
 const InfoCard = ({ icon: Icon, label, lines }) => (
   <div className="flex items-start gap-4 group">
-    <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0 group-hover:bg-[#C62828]/80 transition-all duration-300">
+    <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0 group-hover:bg-indigo-600/80 transition-all duration-300">
       <Icon size={18} className="text-white" />
     </div>
     <div>
@@ -144,7 +144,7 @@ export default function Contact() {
         }}
       />
       {/* ── Top rule lines (academic paper motif) ── */}
-      {/* <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#C62828] via-[#E8A020] to-[#C62828]" /> */}
+      {/* <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-indigo-600 via-[#E8A020] to-indigo-600" /> */}
 
       <div className="relative max-w-7xl mx-auto px-6 pt-8 pb-16 lg:pt-10 lg:pb-24">
 
@@ -179,7 +179,7 @@ export default function Contact() {
               />
             ))}
             {/* Vertical margin line */}
-            <div className="pointer-events-none absolute left-14 top-0 bottom-0 w-px bg-[#C62828]/20" />
+            <div className="pointer-events-none absolute left-14 top-0 bottom-0 w-px bg-indigo-600/20" />
 
             <div className="relative z-10">
 
@@ -236,7 +236,7 @@ export default function Contact() {
                 <p className="text-slate-500 max-w-sm">
                   Our team will review your inquiry and get back to you within one business day.
                 </p>
-                <div className="flex items-center gap-2 mt-5 text-[#C62828] text-sm font-semibold">
+                <div className="flex items-center gap-2 mt-5 text-indigo-600 text-sm font-semibold">
                   <Clock size={15} />
                   <span>Expected response: within 24 hours</span>
                 </div>
@@ -277,7 +277,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full appearance-none px-4 pt-6 pb-2 rounded-xl border border-slate-200 bg-white/80
-                      focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 focus:border-[#C62828]
+                      focus:outline-none focus:ring-2 focus:ring-indigo-600/30 focus:border-indigo-600
                       transition-all text-slate-800 text-sm font-medium cursor-pointer"
                   >
                     <option value="" disabled>Select a department…</option>
@@ -319,7 +319,7 @@ export default function Contact() {
                   type="submit"
                   disabled={status === 'submitting'}
                   className="w-full bg-[#0F1B2D] text-white py-4 px-6 rounded-xl font-bold text-sm tracking-wide
-                    hover:bg-[#C62828] transition-all duration-300 disabled:opacity-60
+                    hover:bg-indigo-600 transition-all duration-300 disabled:opacity-60
                     flex items-center justify-center gap-3 group shadow-lg shadow-slate-900/20"
                 >
                   {status === 'submitting' ? (
@@ -340,7 +340,7 @@ export default function Contact() {
 
                 <p className="text-[11px] text-slate-400 text-center">
                   By submitting, you agree to our{' '}
-                  <a href="#" className="underline hover:text-[#C62828] transition-colors">Privacy Policy</a>.
+                  <a href="#" className="underline hover:text-indigo-600 transition-colors">Privacy Policy</a>.
                   We never share your data.
                 </p>
               </form>

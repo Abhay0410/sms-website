@@ -191,7 +191,7 @@ const Pricing = () => {
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-slate-900 text-white border-b border-slate-800">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#C62828]/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
@@ -219,7 +219,7 @@ const Pricing = () => {
               </span>
               <button
                 onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'yearly' : 'monthly')}
-                className="relative inline-flex h-9 w-20 items-center rounded-full bg-[#C62828]/50 backdrop-blur-sm transition-colors border border-[#C62828]"
+                className="relative inline-flex h-9 w-20 items-center rounded-full bg-indigo-600/50 backdrop-blur-sm transition-colors border border-indigo-600"
               >
                 <motion.span
                   className="inline-block h-7 w-7 rounded-full bg-white shadow-lg"
@@ -232,7 +232,7 @@ const Pricing = () => {
                 <span className={`text-sm font-semibold ${billingCycle === 'yearly' ? 'text-white' : 'text-gray-300'}`}>
                   Yearly
                 </span>
-                <span className="bg-[#C62828] text-white text-xs font-bold px-2.5 py-1 rounded-full">
+                <span className="bg-indigo-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">
                   Save 20%
                 </span>
               </div>
@@ -280,11 +280,11 @@ const Pricing = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
                     className={`relative bg-white rounded-3xl overflow-hidden border-2 transition-all duration-300 hover:-translate-y-2 ${
-                      plan.popular ? 'border-[#C62828] shadow-2xl' : 'border-gray-200 hover:shadow-xl'
+                      plan.popular ? 'border-indigo-600 shadow-2xl' : 'border-gray-200 hover:shadow-xl'
                     }`}
                   >
                     {plan.popular && (
-                      <div className="absolute top-0 right-0 bg-[#C62828] text-white px-4 py-1 rounded-bl-2xl text-sm font-bold">
+                      <div className="absolute top-0 right-0 bg-indigo-600 text-white px-4 py-1 rounded-bl-2xl text-sm font-bold">
                         Most Popular
                       </div>
                     )}
@@ -308,15 +308,15 @@ const Pricing = () => {
                       
                       <div className="mb-6">
                         <div className="inline-flex items-center gap-2 bg-red-50 rounded-full px-3 py-1">
-                          <Users size={14} className="text-[#C62828]" />
-                          <span className="text-xs font-semibold text-[#C62828]">{plan.students} Students</span>
+                          <Users size={14} className="text-indigo-600" />
+                          <span className="text-xs font-semibold text-indigo-600">{plan.students} Students</span>
                         </div>
                       </div>
                       
                       <div className="space-y-3 mb-8">
                         {plan.features.map((feature, i) => (
                           <div key={i} className="flex items-start gap-2">
-                            <CheckCircle2 size={18} className="text-[#C62828] shrink-0 mt-0.5" />
+                            <CheckCircle2 size={18} className="text-indigo-600 shrink-0 mt-0.5" />
                             <span className="text-sm text-gray-700">{feature}</span>
                           </div>
                         ))}
@@ -326,7 +326,7 @@ const Pricing = () => {
                         to="/register"
                         className={`w-full block text-center py-3 rounded-xl font-bold transition-all ${
                           plan.popular
-                            ? 'bg-[#C62828] text-white hover:bg-[#a81f1f] shadow-lg hover:shadow-[#C62828]/25'
+                            ? 'bg-indigo-600 text-white hover:bg-[#a81f1f] shadow-lg hover:shadow-indigo-600/25'
                             : 'bg-slate-900 text-white hover:bg-slate-800'
                         }`}
                       >
@@ -364,9 +364,9 @@ const Pricing = () => {
                           step="50"
                           value={studentCount}
                           onChange={(e) => setStudentCount(parseInt(e.target.value))}
-                          className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#C62828]"
+                          className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                         />
-                        <span className="font-bold text-[#C62828] min-w-[80px]">{studentCount} students</span>
+                        <span className="font-bold text-indigo-600 min-w-[80px]">{studentCount} students</span>
                       </div>
                     </div>
                     
@@ -374,7 +374,7 @@ const Pricing = () => {
                       {moduleCategories.map((category) => (
                         <div key={category.name}>
                           <div className="flex items-center gap-2 mb-3">
-                            <div className="text-[#C62828]">{category.icon}</div>
+                            <div className="text-indigo-600">{category.icon}</div>
                             <h3 className="font-bold text-gray-800">{category.name}</h3>
                           </div>
                           <div className="grid sm:grid-cols-2 gap-3">
@@ -384,8 +384,8 @@ const Pricing = () => {
                                 onClick={() => toggleModule(module.name, module.basePrice)}
                                 className={`text-left p-3 rounded-xl border transition-all ${
                                   selectedModules.find(m => m.name === module.name)
-                                    ? 'border-[#C62828] bg-red-50 ring-2 ring-red-100'
-                                    : 'border-gray-200 hover:border-[#C62828]/50 hover:bg-gray-50'
+                                    ? 'border-indigo-600 bg-red-50 ring-2 ring-red-100'
+                                    : 'border-gray-200 hover:border-indigo-600/50 hover:bg-gray-50'
                                 }`}
                               >
                                 <div className="flex items-start justify-between">
@@ -394,7 +394,7 @@ const Pricing = () => {
                                     <div className="text-xs text-gray-500 mt-1">{module.description}</div>
                                   </div>
                                   {selectedModules.find(m => m.name === module.name) && (
-                                    <CircleCheckBig size={18} className="text-[#C62828] shrink-0" />
+                                    <CircleCheckBig size={18} className="text-indigo-600 shrink-0" />
                                   )}
                                 </div>
                               </button>
@@ -439,7 +439,7 @@ const Pricing = () => {
                     
                     <Link
                       to="/register"
-                      className="w-full block text-center py-3 rounded-xl font-bold bg-[#C62828] text-white hover:bg-[#a81f1f] transition-all"
+                      className="w-full block text-center py-3 rounded-xl font-bold bg-indigo-600 text-white hover:bg-[#a81f1f] transition-all"
                     >
                       Get This Plan <ArrowRight size={16} className="inline ml-1" />
                     </Link>
@@ -482,7 +482,7 @@ const Pricing = () => {
       </div>
 
       {/* CTA Section */}
-      {/* <div className="bg-[#C62828] py-16">
+      {/* <div className="bg-indigo-600 py-16">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to transform your school?
@@ -493,7 +493,7 @@ const Pricing = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               to="/register"
-              className="bg-white text-[#C62828] px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all"
+              className="bg-white text-indigo-600 px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all"
             >
               Start Free Trial
             </Link>

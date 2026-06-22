@@ -179,7 +179,7 @@ export default function TransportManagementModule() {
                             </section>
 
       {/* ── STATS STRIP ── */}
-      <section className="bg-gray-800">
+      <section className="bg-[#001A48]">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((s, i) => (
             <div
@@ -202,7 +202,7 @@ export default function TransportManagementModule() {
       {/* ── INTRO ── */}
       <section className="px-6 md:px-24 py-16 border-b border-gray-100">
         <div className="max-w-3xl">
-          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+          <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-4">
             What Is This Module
           </p>
           <h2 className="text-[#111111] text-4xl md:text-[36px] font-bold mb-6 leading-tight uppercase">
@@ -220,7 +220,7 @@ export default function TransportManagementModule() {
       {/* ── FEATURES GRID ── */}
       <section className="px-6 md:px-24 py-16 border-b border-gray-100">
         <div className="mb-10">
-          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
+          <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-3">
             Seven Features
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-black uppercase">
@@ -234,7 +234,7 @@ export default function TransportManagementModule() {
               key={f.id}
               className={`group border rounded-2xl p-7 transition-all cursor-pointer ${
                 activeFeature === f.id
-                  ? "border-[#C62828] bg-red-50"
+                  ? "border-indigo-600 bg-red-50"
                   : "border-gray-200 hover:border-gray-300 hover:shadow-sm bg-white"
               }`}
               onClick={() =>
@@ -244,7 +244,7 @@ export default function TransportManagementModule() {
               <div
                 className={`w-10 h-10 rounded-xl flex items-center justify-center mb-5 transition-all ${
                   activeFeature === f.id
-                    ? "bg-[#C62828] text-white"
+                    ? "bg-indigo-600 text-white"
                     : "bg-gray-100 text-gray-500 group-hover:bg-gray-200"
                 }`}
               >
@@ -271,8 +271,8 @@ export default function TransportManagementModule() {
               <button
                 className={`border px-3 py-1 rounded-full text-xs transition-all ${
                   activeFeature === f.id
-                    ? "border-[#C62828] bg-[#C62828] text-white"
-                    : "border-[#C62828] text-[#C62828] hover:bg-[#C62828] hover:text-white"
+                    ? "border-indigo-600 bg-indigo-600 text-white"
+                    : "border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white"
                 }`}
               >
                 {activeFeature === f.id ? "Close" : "Read More"}
@@ -285,7 +285,7 @@ export default function TransportManagementModule() {
       {/* ── WORKFLOW ── */}
       <section className="px-6 md:px-24 py-16 bg-gray-50 border-b border-gray-100">
         <div className="mb-10">
-          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-3">
+          <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-3">
             How It Works
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-black uppercase">
@@ -300,7 +300,7 @@ export default function TransportManagementModule() {
                 <div className="hidden lg:block absolute top-5 left-full w-full h-px bg-gray-200 z-0" />
               )}
               <div className="relative z-10 bg-white border border-gray-200 rounded-2xl p-5 h-full">
-                <div className="text-xs font-bold text-[#C62828] mb-3 tracking-widest">
+                <div className="text-xs font-bold text-indigo-600 mb-3 tracking-widest">
                   {w.step}
                 </div>
                 <div className="text-sm font-bold text-black mb-1.5">{w.title}</div>
@@ -315,7 +315,7 @@ export default function TransportManagementModule() {
       <section className="px-6 md:px-24 py-16 border-b border-gray-100">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
          <div>
-  <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+  <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-4">
     Why It Matters
   </p>
 
@@ -337,7 +337,7 @@ export default function TransportManagementModule() {
     reduce transportation costs, and maintain complete fleet visibility.
   </p>
 
-  <button className="border border-[#C62828] text-[#C62828] px-3 py-1 rounded-full text-xs hover:bg-[#C62828] hover:text-white transition-all">
+  <button className="border border-indigo-600 text-indigo-600 px-3 py-1 rounded-full text-xs hover:bg-indigo-600 hover:text-white transition-all">
     Read Documentation
   </button>
 </div>
@@ -346,9 +346,9 @@ export default function TransportManagementModule() {
             {benefits.map((b) => (
               <div
                 key={b.title}
-                className="flex gap-4 items-start border border-gray-200 rounded-2xl p-5 bg-white hover:border-[#C62828] transition-all group"
+                className="flex gap-4 items-start border border-gray-200 rounded-2xl p-5 bg-white hover:border-indigo-600 transition-all group"
               >
-                <div className="w-2 h-2 rounded-full bg-[#C62828] mt-1.5 flex-shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-indigo-600 mt-1.5 flex-shrink-0" />
                 <div>
                   <div className="text-sm font-bold text-black mb-1">{b.title}</div>
                   <div className="text-gray-600 text-sm leading-relaxed">{b.desc}</div>
@@ -362,7 +362,7 @@ export default function TransportManagementModule() {
       {/* ── CTA ── */}
       {/* <section className="px-6 md:px-24 py-20 bg-black">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-xs tracking-widest text-[#C62828] font-semibold uppercase mb-4">
+          <p className="text-xs tracking-widest text-indigo-600 font-semibold uppercase mb-4">
             Get Started
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
@@ -373,7 +373,7 @@ export default function TransportManagementModule() {
             in a 30-minute walkthrough with our team.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
-            <button className="bg-[#C62828] text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-[#a81f1f] transition-all">
+            <button className="bg-indigo-600 text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-[#a81f1f] transition-all">
               Book a Demo
             </button>
             <button className="border border-white/30 text-white px-7 py-3 rounded-full text-sm hover:border-white transition-all">

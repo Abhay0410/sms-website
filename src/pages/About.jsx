@@ -6,11 +6,11 @@ export default function About() {
     <div className="font-sans text-black bg-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-900 text-white py-20 md:py-25">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#C62828]/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-[#C62828] font-bold tracking-widest uppercase mb-4">About EduZager</p>
+          <p className="text-indigo-600 font-bold tracking-widest uppercase mb-4">About EduZager</p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
             Empowering Schools to<br />Focus on Education
           </h1>
@@ -38,7 +38,7 @@ export default function About() {
           </div>
           
           <div id="solution" className="bg-red-50 border border-red-100 p-8 sm:p-10 rounded-3xl relative scroll-mt-20">
-            <div className="absolute -top-6 -left-6 bg-[#C62828] text-white p-4 rounded-2xl shadow-lg">
+            <div className="absolute -top-6 -left-6 bg-indigo-600 text-white p-4 rounded-2xl shadow-lg">
               <Zap size={32} />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-2">
@@ -48,7 +48,7 @@ export default function About() {
               EduZager replaces all those fragmented tools with one seamless, cloud-based ERP platform. Our core philosophy is simple:
             </p>
             <div className="bg-white p-6 rounded-2xl border border-red-100 shadow-sm">
-              <p className="font-bold text-[#C62828] text-xl text-center leading-snug">
+              <p className="font-bold text-indigo-600 text-xl text-center leading-snug">
                 "Everything connects, so you never enter data twice."
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function About() {
               }
             ].map((val, idx) => (
               <div key={idx} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 bg-red-50 text-[#C62828] rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-14 h-14 bg-red-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
                   {val.icon}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">{val.title}</h3>
@@ -95,7 +95,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      {/* <section className="px-4 sm:px-6 lg:px-8 py-20 bg-[#C62828]">
+      {/* <section className="px-4 sm:px-6 lg:px-8 py-20 bg-indigo-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
             Ready to transform your school?
@@ -106,7 +106,7 @@ export default function About() {
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               to="/register"
-              className="bg-white text-[#C62828] px-8 py-4 rounded-full font-bold hover:shadow-lg transition-all flex items-center gap-2"
+              className="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold hover:shadow-lg transition-all flex items-center gap-2"
             >
               Start Free Trial <ArrowRight size={18} />
             </Link>
