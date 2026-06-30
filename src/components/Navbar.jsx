@@ -216,35 +216,51 @@ export default function Navbar() {
           <Logo />
 
           {/* ── CENTER: Nav links (desktop) ── */}
+        
+
           <div className="hidden lg:flex items-center gap-1">
 
-            
+  {/* Home */}
+  <Link
+    to="/"
+    onClick={() => handleNavigation("/")}
+    className={`
+      px-3 py-2 rounded-lg text-sm font-medium transition-all
+      ${location.pathname === "/"
+        ? "text-indigo-600 bg-red-50"
+        : "text-gray-700 hover:text-black hover:bg-gray-50"}
+    `}
+  >
+    Home
+  </Link>
 
-            {/* Modules mega trigger */}
-            <div 
-              ref={megaRef} 
-              onMouseEnter={() => setMegaOpen(true)}
-              onMouseLeave={() => setMegaOpen(false)}
-              className="relative"
-            >
-              <Link
-                to="/modules"
-                className={`
-                  flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all
-                  ${megaOpen
-                    ? "text-indigo-600 bg-red-50"
-                    : "text-gray-700 hover:text-black hover:bg-gray-50"}
-                `}
-              >
-                Modules
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${megaOpen ? "rotate-180 text-indigo-600" : ""}`}
-                />
-              </Link>
+  {/* Modules */}
+  <div
+    ref={megaRef}
+    onMouseEnter={() => setMegaOpen(true)}
+    onMouseLeave={() => setMegaOpen(false)}
+    className="relative"
+  >
+    <Link
+      to="/modules"
+      className={`
+        flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all
+        ${megaOpen
+          ? "text-indigo-600 bg-red-50"
+          : "text-gray-700 hover:text-black hover:bg-gray-50"}
+      `}
+    >
+      Modules
+      <ChevronDown
+        size={14}
+        className={`transition-transform duration-200 ${
+          megaOpen ? "rotate-180 text-indigo-600" : ""
+        }`}
+      />
+    </Link>
 
-              {/* ── MEGA DROPDOWN ── */}
-              {megaOpen && (
+    {/* Mega Menu */}
+    {megaOpen && (
                 <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-160 bg-white border border-gray-200 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden">
 
                   {/* header strip */}
@@ -283,25 +299,27 @@ export default function Navbar() {
                   </div>
                 </div>
               )}
-            </div>
+  </div>
 
-            {/* Other nav links */}
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => handleNavigation(link.path)}
-                className={`
-                  px-3 py-2 rounded-lg text-sm font-medium transition-all
-                  ${location.pathname === link.path
-                    ? "text-indigo-600 bg-red-50"
-                    : "text-gray-700 hover:text-black hover:bg-gray-50"}
-                `}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+  {/* Remaining Links */}
+  {navLinks
+    .filter((link) => link.label !== "Home")
+    .map((link) => (
+      <Link
+        key={link.path}
+        to={link.path}
+        onClick={() => handleNavigation(link.path)}
+        className={`
+          px-3 py-2 rounded-lg text-sm font-medium transition-all
+          ${location.pathname === link.path
+            ? "text-indigo-600 bg-red-50"
+            : "text-gray-700 hover:text-black hover:bg-gray-50"}
+        `}
+      >
+        {link.label}
+      </Link>
+    ))}
+</div>
 
           {/* ── RIGHT: Actions ── */}
           <div className="hidden lg:flex items-center gap-2">
