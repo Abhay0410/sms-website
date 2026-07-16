@@ -18,7 +18,7 @@ export default function RegisterSchool() {
     schoolName: '',
     contactPhone: '',
     subdomain: '',
-    plan: 'Pro', // Default plan selection
+    plan: 'PROFESSIONAL', // Default plan selection
   });
 
   const handleChange = (e) => {
@@ -48,6 +48,7 @@ export default function RegisterSchool() {
         // Auto-generate a unique 6-character school code based on the subdomain
         schoolCode: formData.subdomain.toUpperCase().substring(0, 6) + Math.floor(10 + Math.random() * 90),
         subdomain: formData.subdomain,
+        selectedPlan: formData.plan,
         adminDetails: {
           name: formData.adminName,
           email: formData.adminEmail,
@@ -188,9 +189,9 @@ export default function RegisterSchool() {
                       <div>
                         <label className="block text-sm font-semibold text-slate-700 mb-2">Select Plan</label>
                         <select name="plan" value={formData.plan} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none transition bg-white">
-                          <option value="Basic">Basic - Up to 500 Students</option>
-                          <option value="Pro">Pro - Up to 2,000 Students</option>
-                          <option value="Enterprise">Enterprise - Unlimited</option>
+                          <option value="STARTER">Starter - Up to 150 Students & 15 Staff</option>
+                          <option value="PROFESSIONAL">Professional - Up to 1,000 Students & 75 Staff</option>
+                          <option value="ENTERPRISE">Enterprise - Unlimited Students & Staff</option>
                         </select>
                       </div>
                     </div>
